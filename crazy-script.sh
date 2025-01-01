@@ -80,8 +80,8 @@ echo_dates_range_skip_weekends() {
 
         current_ts=$((current_ts + 86400))
     done
-    git pull origin main --allow-unrelated-histories
-    git commit -am "Merge branch 'main'"
+    git pull origin master --allow-unrelated-histories
+    git commit -am "Merge branch 'master'"
     git push
 }
 
