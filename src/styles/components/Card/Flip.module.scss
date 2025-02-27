@@ -1,0 +1,120 @@
+@import '@styles/brand-variables';
+@import '@styles/mixins';
+
+.flipCard {
+	cursor: pointer;
+	height: 0;
+	padding-top: 100%;
+	position: relative;
+	font-size: 1em;
+	@include flex(column, center, center);
+	overflow: hidden;
+
+	.flipCardInner {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		transition: transform 0.5s;
+		transform-style: preserve-3d;
+	}
+
+	.label {
+		z-index: 1;
+		color: $color-white;
+		text-shadow: 2px 2px 5px $color-black;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+	}
+
+	img {
+		z-index: -1;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		object-fit: cover;
+	}
+
+
+	&.flip .flipCardInner {
+		transform: rotateY(180deg);
+	}
+
+	.front,
+	.back {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+	}
+
+	.front {
+		color: black;
+		z-index: 0;
+	}
+
+	.back {
+		background-color: $primary;
+		color: white;
+		transform: rotateY(180deg);
+		z-index: 1;
+
+		.desc {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			margin: 0;
+			width: 100%;
+			padding: 1em;
+			text-align: left;
+			line-height: 1.5em;
+		}
+	}
+}
+
+.ghost {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: $primary;
+}
+
+.zoom {
+	&::before {
+		opacity: 0.75;
+		content: '';
+		z-index: 0;
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: $primary;
+		transition: width 0.25s, height 0.25s;
+		margin: auto;
+	}
+
+	&:hover {
+		h1 {
+			text-shadow: unset;
+		}
+
+		&::before {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

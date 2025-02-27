@@ -1,0 +1,45 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.main {
+	width: 100%;
+	height: 75px;
+	background-color: $secondaryLight;
+	color: $color-white;
+	text-transform: uppercase;
+
+	:global {
+
+		.wrap {
+			width: 100%;
+			max-width: 1000px;
+			margin: auto;
+			height: 100%;
+			@include flex(row, space-between, center);
+			padding: 0 1em;
+
+			.menu {
+				@include flex(row, flex-start, center);
+				flex-wrap: wrap;
+				column-gap: 1em;
+
+				a {
+					text-decoration: none;
+					font-weight: 700;
+					font-size: 0.85em;
+				}
+			}
+
+			.auth-button,
+			>a {
+				border-radius: 0;
+				background-color: $accent;
+				color: $color-black;
+				text-transform: capitalize;
+				font-weight: 600;
+				padding: 0.5em 1.5em;
+				text-decoration: none;
+			}
+		}
+	}
+}

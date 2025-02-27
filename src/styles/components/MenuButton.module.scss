@@ -1,0 +1,97 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.menuButtonContainer {
+	@include flex(row, center, center);
+	cursor: pointer;
+}
+
+.menuButton {
+	@include flex(column, center, center);
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	right: 20px;
+	top: 30px;
+	background-color: unset;
+	border: none;
+	cursor: pointer;
+	z-index: 10;
+
+	:global {
+		.menu-icon {
+			width: 26px;
+			height: 2px;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: black;
+			border-radius: 5px;
+			transition: all 0.25s;
+			$offset: 6px;
+
+			&.top,
+			&.bottom {
+				z-index: 2;
+			}
+
+			&.top {
+				top: $offset;
+			}
+
+			&.middle {
+				z-index: 1;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				border-radius: 0px;
+			}
+
+			&.bottom {
+				bottom: $offset;
+			}
+		}
+	}
+
+}
+
+.opened {
+	@include flex(column, center, center);
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	right: 20px;
+	top: 30px;
+	background-color: unset;
+	border: none;
+	cursor: pointer;
+	z-index: 10;
+
+	:global {
+		.menu-icon {
+			width: 26px;
+			height: 2px;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: black;
+			border-radius: 5px;
+			transition: all 0.25s;
+			$offset: 6px;
+
+			&.top {
+				top: 50%;
+				transform: translate(-50%, -50%) rotate(135deg);
+			}
+
+			&.middle {
+				opacity: 0;
+			}
+
+			&.bottom {
+				bottom: 42%;
+				transform: translate(-50%, -50%) rotate(-135deg);
+			}
+
+		}
+	}
+}

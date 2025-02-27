@@ -1,0 +1,175 @@
+@import '@styles/brand-variables';
+@import '@styles/mixins';
+@import '@styles/sizing';
+@import '@styles/utilities';
+
+.topSection {
+	scroll-margin-top: 200px;
+}
+
+.page {
+	height: max-content;
+	min-height: 100%;
+
+	:global {
+		.anchors {
+			border-bottom: 2px solid $accent;
+			width: max-content;
+			@include flex(row, center, center);
+			margin: 0em auto 2em auto;
+
+			.anchor {
+				text-decoration: none;
+				color: $secondary;
+				text-transform: uppercase;
+				position: relative;
+				font-size: 0.95rem;
+				cursor: pointer;
+				margin: 0 1em;
+
+				&:before {
+					position: absolute;
+					content: '';
+					width: 100%;
+					height: 100%;
+					left: 0;
+					top: 0;
+					border-bottom: 0px solid $accent;
+					transition: border-bottom 0.25s ease;
+				}
+
+				&:hover {
+					&:before {
+						border-bottom: 4px solid $accentLight;
+					}
+				}
+
+
+			}
+
+			@include mobile-portrait(900px) {
+				display: none;
+			}
+		}
+
+		.cards {
+			@include grid(center, baseline, 0);
+			position: relative;
+			scroll-margin-top: 8em;
+
+			>.card {
+				.left {
+					display: grid;
+				}
+
+				&:nth-of-type(even) {
+					.left {
+						order: 2;
+					}
+
+					.right {
+						order: 1;
+					}
+				}
+			}
+
+			@media screen and (max-width: 900px) {
+				>.card {
+					display: grid;
+					grid-template-columns: 1fr;
+
+					.left {
+						order: 2;
+					}
+
+					.right {
+						order: 1;
+					}
+				}
+			}
+		}
+
+		.bog-content {
+			width: 100%;
+			max-width: 810px;
+			margin: auto;
+			padding: 3em 1em;
+			scroll-margin-top: 8em;
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				color: $primary;
+			}
+		}
+
+		#host-an-event {
+			width: 100%;
+			max-width: 1200px;
+
+			@include mobile-portrait($mobile-width-md) {
+				padding: 2em;
+			}
+		}
+
+		.dress-code {
+			width: 100%;
+			max-width: 1200px;
+			margin: auto;
+			padding: 0 1em;
+
+			>h2 {
+				color: $primary;
+				text-align: center;
+				margin: 1em 0;
+			}
+
+			img {
+				position: relative !important;
+				width: 100%;
+			}
+
+			.locations {
+				width: 100%;
+				max-width: 700px;
+				margin: auto;
+
+				.location {
+					margin: 4em 0;
+
+					h2 {
+						text-align: center;
+						color: $primary;
+					}
+
+					h3,
+					h4,
+					h5,
+					h6 {
+						color: $color-black;
+						border-top: 2px solid $primary;
+						border-bottom: 2px solid $primary;
+					}
+				}
+			}
+
+			.club-policies {
+				border-top: 2px solid $primary;
+				width: 100%;
+				max-width: 700px;
+				margin: auto;
+
+				>div {
+					border-bottom: 2px solid $primary !important;
+
+					.label {
+						color: $color-black;
+					}
+				}
+			}
+		}
+	}
+}

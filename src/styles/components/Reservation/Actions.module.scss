@@ -1,0 +1,55 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.actions {
+	position: relative;
+
+	button {
+		font-family: "Neutraface2TextTTBook";
+		text-transform: capitalize;
+	}
+
+	:global {
+
+		.btn {
+			@include flex(row, center, center);
+			column-gap: 0.5em;
+			cursor: pointer;
+
+			i {
+				color: $primary;
+			}
+		}
+
+		.action-items {
+			display: none;
+			position: absolute;
+			right: 0px;
+			//top: 100%;
+			background-color: $primary;
+			z-index: 1;
+			width: 100%;
+
+			.action {
+				width: 100%;
+				background-color: transparent;
+				box-shadow: none;
+				color: $color-white;
+			}
+		}
+	}
+}
+
+.opened {
+	:global {
+		.btn {
+			i {
+				transform: rotate(90deg);
+			}
+		}
+
+		.action-items {
+			@include flex(column);
+		}
+	}
+}

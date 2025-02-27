@@ -1,0 +1,19 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.card {
+	@include flex(row, space-between, flex-start);
+	border-left: 2px solid $accent;
+	padding: 10px 1em;
+
+	.details {
+		flex: 1;
+		@include flex(column);
+
+		.venue-Title {
+			font-weight: bold;
+			padding: 0px;
+			color: $primary;
+		}
+	}
+}

@@ -1,0 +1,96 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+@import '@styles/sizing';
+
+.content {
+	max-width: 1000px;
+	@include flex(column, center, center);
+	gap: 3em;
+	height: max-content !important;
+	padding: 1em;
+	width: 100%;
+	overflow: hidden;
+	margin: auto;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: $primary;
+	}
+
+	.inputArea {
+		background-color: whitesmoke;
+		align-self: flex-end;
+		overflow: hidden;
+		padding-right: 0.5em;
+		margin-top: 3em;
+		max-width: 100%;
+		@include flex(row, center, center);
+
+		.select {
+			background-color: unset;
+			border: none;
+			padding: 0.75em;
+			outline: 0;
+			font-family: 'Neutraface2TextTTBook';
+			font-weight: 600;
+			font-size: 1.25em;
+			letter-spacing: 0.05em;
+			color: $primaryDark;
+			max-width: 100%;
+
+			&:focus,
+			&:active {
+				border: none;
+			}
+		}
+	}
+
+	.department {
+		@include flex(row, space-between, flex-start);
+		flex-wrap: wrap;
+		gap: 1em;
+		width: 100%;
+		height: max-content;
+		flex-shrink: 0;
+		margin-bottom: 3em;
+
+		h2 {
+			width: 100%;
+			border-bottom: 2px solid $accent;
+			padding: 1em 0;
+		}
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		a {
+			@include flex(row, flex-start, center);
+			gap: 0.5em;
+			width: 100%;
+			text-decoration: none;
+		}
+	}
+
+	@include mobile-portrait(700px) {
+		.department {
+			.staff-card {
+				width: 100%;
+			}
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: $primary;
+		font-family: 'Neutraface2TextTTBook';
+	}
+}

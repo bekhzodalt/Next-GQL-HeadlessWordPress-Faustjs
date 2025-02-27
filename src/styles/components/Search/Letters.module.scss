@@ -1,0 +1,106 @@
+@import '@styles/_mixins.scss';
+@import '@styles/_brand-variables.scss';
+
+.search {
+	width: 100%;
+	@include flex(column, center, flex-start);
+
+	.label {
+		color: $secondaryLight;
+	}
+
+	.alphabet {
+		margin-bottom: 0.5em;
+
+		.label {
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 0.8rem;
+		}
+
+		.letters {
+			@include flex(row, flex-start, center);
+			flex-wrap: wrap;
+
+			>button {
+				text-transform: uppercase;
+				min-width: 1.25em;
+				background-color: rgba($lightGray, 0.75);
+				color: $color-white;
+				margin: 0.1em 0.2em 0.1em 0;
+				text-align: center;
+				cursor: pointer;
+				display: block;
+				color: $color-white;
+				border-radius: 0;
+				padding: 0;
+
+				&:hover {
+					background-color: $primary;
+				}
+
+				&:focus,
+				&:active {
+					background-color: $accent;
+				}
+			}
+
+			.selected {
+				background-color: $accent;
+			}
+		}
+	}
+
+	.name {
+		.label {
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 0.8rem;
+		}
+
+		.inputs {
+			@include flex(row);
+			gap: 0.5em;
+			flex-wrap: wrap;
+			position: relative;
+			width: 100%;
+			height: 25px;
+
+			a {
+				text-decoration: none;
+			}
+
+			input,
+			button,
+			a {
+				padding: 0.4em;
+				border-radius: 0 !important;
+				border: none;
+			}
+
+			input {
+				border: 1px solid rgba($lightGray, 0.4);
+				min-height: 100%;
+				width: 150px;
+				height: 100%;
+			}
+
+			button,
+			a {
+				background-color: $primary;
+				color: $color-white;
+				font-size: 0.7rem;
+				height: 100%;
+				transition: none;
+
+				&:hover {
+					background-color: $accent;
+				}
+			}
+
+			@media screen and (max-width: 800px) {
+				height: max-content;
+			}
+		}
+	}
+}

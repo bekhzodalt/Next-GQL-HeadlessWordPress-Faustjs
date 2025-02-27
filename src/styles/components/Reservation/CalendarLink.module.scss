@@ -1,0 +1,13 @@
+.link {
+	width: 100%;
+
+	>a {
+		margin: auto;
+		display: block;
+		width: 100%;
+		max-width: 250px;
+		text-decoration: none;
+		padding: 0.5em 1em;
+		border: 1px solid white;
+	}
+}

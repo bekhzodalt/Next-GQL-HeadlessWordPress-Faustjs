@@ -1,0 +1,163 @@
+@import '@styles/brand-variables';
+@import '@styles/mixins';
+
+.page {
+	margin: auto;
+	max-width: 1200px;
+	width: 100%;
+	z-index: 0;
+	background-color: #f4f4f4;
+	padding: 5em 3em 5em;
+	position: relative;
+
+	h2 {
+		color: #242c66;
+		font-family: 'Neutraface2TextTTBook';
+		font-size: 1.1rem;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: #242c66;
+	}
+
+	.tabs {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: solid 2px $accent;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 2.2em;
+
+		.tab {
+			font-size: 1.1rem;
+			border-bottom: solid 3px #f4f4f4;
+			cursor: pointer;
+			font-weight: 600;
+			color: #242c66;
+
+			&.active {
+				border-color: $accent;
+			}
+
+			&:first-child {
+				margin-right: 1em;
+			}
+
+			&:last-child {
+				margin-left: 1em;
+			}
+		}
+	}
+
+	b,
+	strong {
+		display: block;
+	}
+
+	ol {
+		padding-left: 15px;
+		margin: 0;
+	}
+
+	.memberRules {
+		br {
+			display: none;
+		}
+	}
+
+	.bylaws {
+		h2 {
+			margin-bottom: 1em;
+		}
+
+		ul {
+			margin-top: 1.25em;
+			padding-left: 15px;
+			list-style: disc;
+		}
+
+		ol li {
+			margin-top: 1.25em;
+		}
+
+		// counter logic for ordered list
+
+		:global {
+			ol.continue {
+				list-style-type: none;
+			}
+
+			ol.continue > li::before {
+				counter-increment: mycounter;
+				content: counter(mycounter) '. ';
+			}
+
+			ol.continue:first-child {
+				counter-reset: mycounter;
+			}
+
+			ol.continue-2 {
+				list-style-type: none;
+			}
+
+			ol.continue-2 > li::before {
+				counter-increment: mycounter;
+				content: counter(mycounter) '. ';
+			}
+
+			ol.continue-2:not(:first-child) {
+				counter-reset: mycounter;
+			}
+		}
+
+		// end counter logic
+
+		:global {
+			li.subTitle {
+				list-style: none;
+				margin: 0 0.5em;
+				margin-left: 0;
+				margin-right: auto;
+				width: calc(100% - 1em - 15px);
+				font-size: clamp(1.08rem, 5vw, 1.2rem);
+				color: #242c66;
+				text-align: center;
+			}
+		}
+	}
+
+	:global {
+		li.subTitle {
+			list-style: none;
+			margin: 0.5em;
+			text-align: center;
+		}
+	}
+
+	@media (max-width: 767px) {
+		padding: 5em 2em 5em;
+
+		.tabs {
+			min-width: 300px;
+
+			.tab {
+				font-size: 1rem;
+				line-height: 2;
+
+				&:first-child {
+					margin-right: 0.5em;
+				}
+
+				&:last-child {
+					margin-left: 0.5em;
+				}
+			}
+		}
+	}
+}

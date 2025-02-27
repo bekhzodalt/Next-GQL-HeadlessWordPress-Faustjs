@@ -1,0 +1,65 @@
+@import '@styles/brand-variables';
+@import '@styles/mixins';
+
+.modal {
+	padding: 1em;
+	background-color: $primary;
+	@include glass-it();
+	overflow-y: auto;
+	width: 100%;
+	height: 100%;
+	@include grid();
+	grid-template-rows: 0 1fr;
+
+	>svg {
+		color: $primary;
+		position: absolute;
+		font-size: 1.5em;
+		top: 1em;
+		right: 1em;
+		cursor: pointer;
+		z-index: 100000;
+	}
+
+	:global {
+		.inner {
+			width: 80%;
+			height: 100%;
+			margin: auto;
+			gap: 1em;
+			overflow: hidden;
+			@include grid();
+			grid-template-rows: max-content 1fr;
+			gap: 0;
+
+			a {
+				text-decoration: none;
+				padding: 1em;
+				color: $primary;
+				gap: 1em;
+				width: max-content;
+				justify-self: flex-end;
+
+				button {
+					background-color: $primary;
+					color: $color-white;
+					border-radius: 0;
+					@include flex(row, center, center);
+					gap: 0.5em;
+					text-transform: capitalize;
+					padding: 0.5em 1em;
+					font-weight: 600;
+
+					&:hover {
+						background-color: $primaryOpaque;
+					}
+				}
+			}
+
+			iframe {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}

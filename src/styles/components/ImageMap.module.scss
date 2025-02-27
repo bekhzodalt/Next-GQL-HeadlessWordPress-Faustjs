@@ -1,0 +1,32 @@
+@import '@styles/brand-variables';
+
+.imageMapWrap {
+	width: 100%;
+	max-width: 800px;
+	height: auto;
+	margin: auto;
+	background-color: $color-white;
+	position: relative;
+
+	:global {
+		.image-map {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 0;
+			padding-bottom: 0.5em;
+		}
+
+		picture {
+			position: relative;
+			z-index: 1;
+			pointer-events: none;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}

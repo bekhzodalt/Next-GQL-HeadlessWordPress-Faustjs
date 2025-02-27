@@ -1,0 +1,36 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.layout {
+	@include grid(baseline, baseline, 0);
+	grid-template-columns: 1fr;
+	grid-template-rows: max-content max-content 1fr max-content;
+	border-top: 5px solid $accent;
+	padding-bottom: 4em;
+
+	>div {
+		&:first-of-type {
+			z-index: 100000;
+		}
+
+		&:nth-of-type(3) {
+			height: 100%;
+		}
+
+		&:last-child {
+			overflow: hidden;
+		}
+	}
+
+	:global {
+		@media screen and (max-width: 1000px) {
+			.main-navigation {
+				display: none;
+			}
+
+			.members-navigation {
+				display: none;
+			}
+		}
+	}
+}

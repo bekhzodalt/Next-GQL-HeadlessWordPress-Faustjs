@@ -1,0 +1,100 @@
+@import '@styles/brand-variables';
+@import '@styles/mixins';
+
+.page {
+	flex: 0 auto;
+	min-width: 50%;
+	max-width: 1200px;
+	justify-self: center;
+	margin: auto;
+	margin-bottom: 2em;
+	padding: 2em;
+	background-color: #f4f4f4;
+	z-index: 1;
+	
+	h2 {
+		text-transform: uppercase;
+		font-weight: bold;
+		margin-bottom: 0.5em;
+		color: $primary;
+		text-align: center;
+	}
+
+	> p {
+		text-align: center;
+	}
+
+	form {
+		margin: 1em auto;
+		max-width: 470px;
+
+		ul {
+			@include flex(column, center, flex-start);
+			gap: 0.8em;
+			padding: 0;
+
+			li {
+				display: flex;
+				flex-wrap: wrap;
+				flex: 1 1 auto;
+
+				label {
+					width: clamp(5em, 50vw, 20em);
+					font-weight: bold;
+					font-size: 14px;
+				}
+
+				span {
+					font-size: 14px;
+
+					&.required {
+						color: #FF0000;
+					}
+				}
+
+				.submitBtn {
+					width: 100px;
+					background-color: $accent;
+					color: $primary;
+					text-transform: capitalize;
+					border-radius: 0;
+					font-family: $body;
+					font-weight: 600;
+					padding: 0.5em 1em;
+					border: unset;
+					cursor: pointer;
+				}
+
+				input,
+				textarea,
+				select {
+					border: solid 0.1px $primary;
+
+					&.invalid {
+						border-color: #FF0000;
+					}
+				}
+
+				&:last-of-type {
+					margin: 1em auto 0;
+				}
+
+				&.formMessages {
+					color: $deep-blue;
+					font-family: $body;
+					font-weight: 600;
+
+					&.error {
+						color: #FF0000;
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		width: calc(100% - 4em);
+		max-width: unset;
+	}
+}
+

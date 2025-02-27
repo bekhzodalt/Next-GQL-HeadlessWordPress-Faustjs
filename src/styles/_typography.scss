@@ -1,0 +1,211 @@
+@import 'brand-variables';
+
+// Font imports
+@font-face {
+	font-family: 'Neutraface2DisplayTTBold';
+	src: local('Neutraface2DisplayTT-Bold'),
+		url('../../public/fonts/Neutraface2DisplayTT-Bold.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2DisplayTT-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2DisplayTTInline';
+	src: local('Neutraface2DisplayTT-Inline'),
+		url('../../public/fonts/Neutraface2DisplayTT-Inline.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2DisplayTT-Inline.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2DisplayTTLight';
+	src: local('Neutraface2DisplayTT-Light'),
+		url('../../public/fonts/Neutraface2DisplayTT-Light.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2DisplayTT-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2DisplayTTMedium';
+	src: local('Neutraface2DisplayTT-Medium'),
+		url('../../public/fonts/Neutraface2DisplayTT-Medium.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2DisplayTT-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2DisplayMedium';
+	src: local('Neutraface2Display-Medium'),
+		url('../../public/fonts/Neutraface2Display-Medium.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2Display-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2DisplayTTTitling';
+	src: local('Neutraface2DisplayTT-Titling'),
+		url('../../public/fonts/Neutraface2DisplayTT-Titling.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2DisplayTT-Titling.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2DisplayTTThin';
+	src: local('Neutraface2DisplayTT-Thin'),
+		url('../../public/fonts/Neutraface2DisplayTT-Thin.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2DisplayTT-Thin.woff') format('woff');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2TextTTBold';
+	src: local('Neutraface2TextTT-Bold'),
+		url('../../public/fonts/Neutraface2TextTT-Bold.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2TextTT-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2TextTTBoldItalic';
+	src: local('Neutraface2TextTT-BoldItalic'),
+		url('../../public/fonts/Neutraface2TextTT-BoldItalic.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2TextTT-BoldItalic.woff') format('woff');
+	font-weight: bold;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2TextTTBook';
+	src: local('Neutraface2TextTT-Book'),
+		url('../../public/fonts/Neutraface2TextTT-Book.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2TextTT-Book.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2TextTTBookItalic';
+	src: local('Neutraface2TextTT-BookItalic'),
+		url('../../public/fonts/Neutraface2TextTT-BookItalic.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2TextTT-BookItalic.woff') format('woff');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2TextTTDemiItalic';
+	src: local('Neutraface2TextTT-DemiItalic'),
+		url('../../public/fonts/Neutraface2TextTT-DemiItalic.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2TextTT-DemiItalic.woff') format('woff');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2TextTTDemi';
+	src: local('Neutraface2TextTT-Demi'),
+		url('../../public/fonts/Neutraface2TextTT-Demi.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2TextTT-Demi.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2TextTTLight';
+	src: local('Neutraface2TextTT-Light'),
+		url('../../public/fonts/Neutraface2TextTT-Light.woff2') format('woff2'),
+		url('../../public/fonts/Neutraface2TextTT-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Neutraface2TextTTItalic';
+	src: local('Neutraface2TextTT-LightItalic'),
+		url('../../public/fonts/Neutraface2TextTT-LightItalic.woff2')
+			format('woff2'),
+		url('../../public/fonts/Neutraface2TextTT-LightItalic.woff') format('woff');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'ProximaNovaBold';
+	src: url('../../public/fonts/proximanova-bold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+// Typography styles
+body {
+	font-family: $body;
+
+	span {
+		font-family: $body;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $header;
+	font-weight: $headerWeight;
+	line-height: 1.2;
+}
+
+$multiplier: 0.9;
+
+h1 {
+	font-size: clamp(calc(2rem * $multiplier), calc(5vw), 2rem);
+}
+
+h2 {
+	font-size: clamp(calc(1.6rem * $multiplier), calc(5vw), 1.6rem);
+}
+
+h3 {
+	font-size: clamp(calc(1.3rem * $multiplier), calc(5vw), 1.3rem);
+}
+
+h4 {
+	font-size: clamp(calc(1.2rem * $multiplier), calc(5vw), 1.2rem);
+}
+
+h5 {
+	font-size: clamp(calc(1rem * $multiplier), calc(5vw), 1rem);
+}
+
+h6 {
+	font-size: clamp(calc(0.8rem * $multiplier), calc(5vw), 0.8rem);
+}
+
+p {
+	margin-bottom: 1.2rem;
+}

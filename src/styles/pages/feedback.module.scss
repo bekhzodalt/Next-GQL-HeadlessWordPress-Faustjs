@@ -1,0 +1,121 @@
+@import '@styles/brand-variables';
+@import '@styles/mixins';
+@import '@styles/sizing';
+@import '@styles/utilities';
+
+.page {
+	flex: 0 auto;
+	min-width: 100%;
+	justify-self: center;
+	margin: auto;
+	margin-bottom: 3em;
+	padding: 2em;
+	z-index: 1;
+	background-color: #f4f4f4;
+
+	h1 {
+		color: $primary;
+	}
+
+	form {
+		display: inline-block;
+		margin: 0;
+
+		ul {
+			@include flex(column, center, flex-start);
+			gap: 0.8em;
+			padding: 0;
+			margin-top: 0;
+
+			li {
+				display: flex;
+				flex-wrap: wrap;
+				flex: 1 1 auto;
+
+				strong {
+					margin: 1em 0;
+				}
+
+				label {
+					width: clamp(5em, 50vw, 20em);
+					font-weight: bold;
+					font-size: 14px;
+				}
+
+				span {
+					font-size: 14px;
+
+					&.required {
+						color: #ff0000;
+						color: #ff0000;
+					}
+				}
+
+				.submitBtn {
+					width: 100px;
+					background-color: $accent;
+					color: $primary;
+					text-transform: capitalize;
+					border-radius: 0;
+					font-family: $body;
+					font-weight: 600;
+					padding: 0.5em 1em;
+					border: unset;
+					cursor: pointer;
+				}
+
+				input,
+				textarea,
+				select {
+					border: solid 1px $primary;
+					width: 180px;
+					padding: 3px;
+
+					&.invalid {
+						border-color: #ff0000;
+						border-color: #ff0000;
+					}
+				}
+
+				&:last-of-type {
+					// margin-left: auto;
+				}
+
+				&.formMessages {
+					color: $deep-blue;
+					font-family: $body;
+					font-weight: 600;
+
+					&.error {
+						color: #ff0000;
+						color: #ff0000;
+					}
+				}
+			}
+		}
+	}
+
+	.note {
+		* {
+			margin: 0;
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		max-width: unset;
+		padding: 1em;
+
+		form ul li {
+			label {
+				max-width: 150px;
+				width: 150px;
+			}
+
+			input,
+			select,
+			textarea {
+				width: 145px;
+			}
+		}
+	}
+}

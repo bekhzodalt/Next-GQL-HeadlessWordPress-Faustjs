@@ -1,0 +1,62 @@
+@import "@styles/brand-variables";
+@import "@styles/mixins";
+
+.anchors {
+	margin-bottom: 3em;
+	margin-top: 1em;
+
+	.anchorsInner {
+		border-bottom: 2px solid $accent;
+		width: max-content;
+		@include flex(row, center, center);
+		gap: 2em;
+		margin: 0em auto;
+
+		a {
+			text-decoration: none;
+			color: #000;
+			text-transform: uppercase;
+			position: relative;
+			font-size: 1rem;
+			padding: 0.5em 0;
+			font-weight: lighter;
+
+			&:before {
+				position: absolute;
+				content: '';
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				border-bottom: 0px solid $accent;
+				transition: border-bottom 0.25s ease;
+			}
+
+			&:hover {
+				opacity: 0.7;
+
+				&:before {
+					border-bottom: 4px solid $accentLight;
+				}
+			}
+		}
+
+	}
+
+	.bottomAnchors {
+		border-bottom: 0;
+
+		a {
+			&:hover {
+				&:before {
+					border-top: 4px solid $accentLight;
+					border-bottom: 0;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 900px) {
+		display: none;
+	}
+}

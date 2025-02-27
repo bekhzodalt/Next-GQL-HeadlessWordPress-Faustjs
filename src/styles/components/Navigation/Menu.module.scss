@@ -1,0 +1,200 @@
+@import "@styles/brand-variables";
+@import "@styles/mixins";
+
+.open {
+	opacity: 1;
+	pointer-events: all;
+}
+
+.menu {
+	@include glass-it($primarySeeThrough);
+	@include flex(column, flex-start, center);
+	top: 0;
+	height: 100%;
+	overflow-y: auto;
+	padding: 3em;
+
+	.close {
+		>* {
+			background-color: $color-white;
+		}
+	}
+
+	.menuWrapper {
+		position: relative;
+		@include flex(column);
+		width: 100%;
+		margin: auto;
+		margin-top: 0;
+
+		a {
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		>a {
+			border-radius: 0;
+			background-color: $accent;
+			color: $color-black;
+			text-transform: capitalize;
+			font-weight: 600;
+			padding: 0.5em 1.5em;
+		}
+
+		.menuButton {
+			right: 1.5em;
+			top: calc(104px / 2 - 10px);
+
+			div {
+				background-color: white;
+			}
+		}
+
+		.primary,
+		.secondary {
+			@include flex(column);
+			padding: 0 1em;
+
+			a,
+			>div {
+				text-transform: uppercase;
+				color: white;
+			}
+
+			svg {
+				color: white;
+			}
+		}
+
+		.secondary {
+			a {
+				margin: 0.25em 0;
+			}
+		}
+
+		.divider {
+			min-height: 2px;
+			background-color: $color-white;
+			margin: 0.5em 0;
+		}
+
+		.primary,
+		.secondary,
+		.divider {
+			width: 100%;
+		}
+
+		.primary {
+			>.subItem {
+				@include flex();
+
+				>span {
+					@include flex(row, flex-start, center);
+					margin: 0.25em 0;
+
+					>a {
+						margin-right: 0.25em;
+						white-space: nowrap;
+					}
+				}
+			}
+
+			.anchors {
+				>* {
+					margin: 0.25em 0;
+				}
+			}
+
+			@media screen and (min-width: 900px) {
+				.anchors {
+					display: none;
+				}
+			}
+		}
+
+		.authButton {
+			border-radius: 0;
+			background-color: $accent;
+			color: $color-black;
+			text-transform: capitalize;
+			font-weight: 600;
+			padding: 0.5em 1.5em;
+			margin: 0.25em 0;
+			align-self: center;
+		}
+
+		.subMenu,
+		.deepMenu {
+			padding: 0 0 0 2em;
+			overflow: hidden;
+			@include flex(column, center, flex-start);
+
+			.link {
+				@include flex();
+				margin: 0.25em 0;
+
+				>span {
+					@include flex(row, flex-start, center);
+
+					>span {
+						margin-right: 0.25em;
+						white-space: nowrap;
+					}
+				}
+
+				button {
+					color: white;
+					margin: 0;
+					padding: 0;
+					font-size: 1rem;
+				}
+			}
+
+
+			&.opened {
+				height: max-content;
+			}
+
+			&:not(.opened) {
+				height: 0;
+				padding: 0;
+			}
+		}
+
+		.deepMenu {
+			padding-left: 2em;
+		}
+	}
+
+	@media screen and (min-width: 900px) {
+		background-color: unset;
+		backdrop-filter: unset;
+		-webkit-backdrop-filter: unset;
+		padding: 0;
+		justify-content: flex-start;
+		align-items: flex-start;
+		max-width: 1200px;
+		margin: auto;
+		overflow-y: initial;
+		pointer-events: none;
+
+		.menuWrapper {
+			pointer-events: all;
+			@include glass-it($primarySeeThrough);
+			max-width: max-content;
+			padding: 1em;
+			margin: unset;
+			overflow-y: auto;
+			top: calc(100px + 2.5em);
+
+			.divider,
+			.secondary {
+				display: none;
+			}
+		}
+
+		.close {
+			display: none;
+		}
+	}
+}

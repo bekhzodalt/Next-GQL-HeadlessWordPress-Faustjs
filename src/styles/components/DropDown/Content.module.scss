@@ -1,0 +1,38 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.dropDownContent {
+	border-bottom: 2px solid $accent;
+
+	:global {
+		.label {
+			@include flex(row, center, center);
+			padding: 0.5em 0;
+			color: $primary;
+			position: relative;
+			cursor: pointer;
+
+			svg {
+				position: absolute;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				cursor: pointer;
+			}
+
+			>* {
+				margin: 0 0.5em;
+			}
+		}
+
+		.drop-down {
+			height: 0;
+			overflow: hidden;
+
+			&.opened {
+				height: max-content;
+			}
+		}
+	}
+}

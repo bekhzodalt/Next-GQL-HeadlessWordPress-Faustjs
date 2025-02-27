@@ -1,0 +1,179 @@
+@import '@styles/mixins';
+@import '@styles/sizing';
+@import '@styles/brand-variables';
+
+.header {
+	background-color: white;
+	margin: auto;
+	width: 100%;
+	height: max-content;
+	@include flex(row, center, center);
+	flex-wrap: wrap;
+	color: $primary;
+	z-index: 2;
+	gap: 1em;
+	padding: 1em;
+
+	:global {
+		.left {
+			@include flex(row, flex-start, center);
+			flex: 1;
+			max-width: 400px;
+
+			.menu-button {
+				width: 40px;
+				right: unset;
+				top: unset;
+				position: relative;
+				display: flex;
+
+				> div {
+					width: 100%;
+				}
+			}
+
+			h4 {
+				font-weight: 600;
+				color: $primary;
+				height: max-content;
+			}
+
+			.menu-button,
+			h4 {
+				margin: 0 0.5em;
+			}
+		}
+
+		.middle {
+			@include flex(row, center, center);
+			flex: 1;
+			max-width: 400px;
+
+			a {
+				width: max-content;
+
+				img {
+					height: 100px;
+					width: auto;
+					object-fit: contain;
+				}
+			}
+		}
+
+		.right {
+			@include flex(row, flex-end, center);
+			flex: 1;
+			max-width: 400px;
+			flex-wrap: wrap;
+
+			a {
+				text-transform: uppercase;
+				font-weight: 600;
+				text-decoration: none;
+				@include flex(row, center, center);
+				color: $primary;
+
+				h4 {
+					font-weight: 600;
+					height: max-content;
+				}
+
+				h4,
+				svg {
+					margin: 0 0.5em;
+				}
+			}
+
+			.foretees {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				gap: 1em;
+
+				.foreteesBtn {
+					display: flex;
+					flex-direction: row-reverse;
+					justify-content: center;
+					align-items: center;
+					text-transform: uppercase;
+					color: $primary;
+					font-size: 1.15em;
+					font-weight: 600;
+					border-radius: 0;
+					text-decoration: none;
+					gap: 0.5em;
+					background: unset;
+					border: unset;
+					font-family: $header;
+					padding: 0;
+					margin: 0 0.5em;
+					cursor: pointer;
+				}
+			}
+
+			span {
+				@media screen and (max-width: 800px) {
+					display: none;
+				}
+			}
+		}
+
+		.banner {
+			color: $primary;
+			font-weight: bolder;
+			font-size: 1em;
+			width: 100%;
+			text-align: center;
+
+			.years {
+				white-space: nowrap;
+				align-self: center;
+				font-size: 0.8em;
+			}
+		}
+
+		@media screen and (max-width: 800px) {
+			flex-wrap: nowrap;
+			height: 102px;
+
+			.middle {
+				overflow: hidden;
+
+				a img {
+					height: 70px;
+				}
+			}
+
+			.left,
+			.middle,
+			.right {
+				width: calc(100% / 3);
+			}
+		}
+
+		@media screen and (max-width: 400px) {
+			display: grid;
+			grid-template-columns: 1fr max-content 1fr;
+			overflow: hidden;
+			width: 100%;
+			margin: none;
+			flex-wrap: wrap;
+
+			.left,
+			.right {
+				h4,
+				a h4 {
+					font-size: 1em;
+					margin: 0;
+				}
+			}
+
+			.left,
+			.middle,
+			.right {
+				width: auto;
+			}
+		}
+	}
+}

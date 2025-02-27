@@ -1,0 +1,25 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.step {
+	:global {
+		.right {
+			@include flex(column, flex-start, center);
+			width: 100%;
+			row-gap: 1em;
+
+			textarea {
+				width: 100%;
+				color: $primaryDark;
+				min-height: 150px;
+			}
+
+			button {
+				color: white;
+				border: 1px solid $color-white;
+				border-radius: 0;
+				padding: 0.5em 1.5em;
+			}
+		}
+	}
+}

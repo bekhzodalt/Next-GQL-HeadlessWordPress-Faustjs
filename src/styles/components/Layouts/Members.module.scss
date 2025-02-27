@@ -1,0 +1,409 @@
+@import '@styles/_mixins.scss';
+@import '@styles/_brand-variables.scss';
+
+.layout {
+	border: unset;
+	width: 100%;
+
+	:global {
+		@media screen and (max-width: 800px) {
+			.main-navigation {
+				display: none;
+			}
+
+			.members-navigation {
+				display: none;
+			}
+		}
+	}
+
+	@media screen and (min-width: 800px) {
+		border-top: 5px solid $accent;
+	}
+}
+
+.memberHeader {
+	width: 100%;
+	@include flex(row);
+	gap: 1em;
+	grid-column: 1/span 2;
+	background-color: $contentGray;
+	padding: 2em 10%;
+
+	.profile {
+		@include flex(column, flex-start, center);
+		width: 200px;
+
+		h3 {
+			text-align: center;
+			margin-bottom: 0.5em;
+		}
+
+		h3,
+		a {
+			color: $primary;
+		}
+
+		a {
+			text-decoration: none;
+			margin-top: 1em;
+			font-weight: bold;
+			white-space: wrap;
+			width: 150px;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.divider {
+		display: block;
+		border: none;
+		width: 1px;
+		height: 100%;
+		background-color: $primary;
+	}
+
+	.searchArea {
+		height: min-content;
+		margin: auto;
+		width: calc(75% - 1px);
+		padding: 0 1em;
+	}
+
+	@media screen and (max-width: 800px) {
+		flex-direction: column-reverse;
+		justify-content: center;
+		align-items: center;
+		padding: 2em;
+
+		.searchArea {
+			width: 100%;
+		}
+	}
+}
+
+.content {
+	width: 100%;
+	max-width: 1200px;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr max-content;
+	grid-template-rows: repeat(3, min-content);
+
+	&:has(.hasBGColor) {
+		background-color: white;
+	}
+
+	:global {
+		.search {
+			min-height: min-content;
+		}
+	}
+
+	.children {
+		grid-column: 1 / span 2;
+		@include grid();
+		gap: 2em;
+	}
+
+	.hasBGColor {
+		padding: 1.5em;
+		background-color: white;
+	}
+
+	.sidebar {
+		grid-area: sidebar;
+		background-color: $contentGray;
+		grid-column: 3 / span 1;
+		grid-row: 1/ span 3;
+		min-width: 200px;
+
+		.image {
+			position: relative;
+			width: 100%;
+			height: 0;
+			overflow: hidden;
+			padding-top: 100%;
+
+
+			img {
+				position: absolute;
+				width: 100% !important;
+				min-height: 100%;
+				top: 0;
+				left: 0;
+				background-size: contain;
+			}
+		}
+
+		.info {
+			display: block;
+			padding: 1em 1.5em;
+			background-color: $accentBright;
+			color: $color-white;
+			text-transform: uppercase;
+			width: 100% !important;
+			font-weight: 800;
+		}
+
+		.members-menu {
+			li {
+				list-style: none;
+				font-weight: bold;
+
+				a {
+					text-decoration: none;
+					color: $secondaryLight;
+
+					&:hover {
+						color: $primary;
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		:global {
+			.search {
+				height: max-content;
+			}
+		}
+
+		.sidebar {
+			display: none;
+		}
+
+		width: 100% !important;
+		padding: 1em;
+
+		&:not(:has(.hasBGColor)) {
+			>* {
+				margin: auto;
+				width: 500px;
+			}
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		&:not(:has(.hasBGColor)) {
+			>* {
+				margin: auto;
+				width: 100%;
+			}
+
+			.children {
+				gap: 1em;
+			}
+		}
+	}
+
+}
+
+.modal {
+	background-color: rgba($color-black, 0.5);
+	padding: 5%;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: auto;
+	@include flex(column);
+
+	.inner {
+		@include flex(row);
+		background-color: $color-white;
+		padding: 2em;
+		position: relative;
+		width: 100%;
+		height: max-content;
+		max-width: 800px;
+		margin: auto;
+
+		a {
+			color: $deep-blue !important;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		.close {
+			color: $primary;
+			position: absolute;
+			right: 0.75em;
+			top: 0.75em;
+			cursor: pointer;
+
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+
+		.left {
+			@include flex(column);
+			width: 100px;
+			margin-right: 2em;
+
+			.avatar {
+				@include flex(column, center, center);
+				background-color: $color-white;
+				width: 100px;
+				height: 0;
+				padding-top: 100%;
+				border: 2px solid rgba($lightGray, 0.5);
+				overflow: hidden;
+				position: relative;
+
+				&:before {
+					content: '';
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					border: 2px solid $color-white;
+					top: 0;
+					left: 0;
+					z-index: 10;
+				}
+
+				svg {
+					position: absolute;
+					top: 0;
+					left: 0;
+					color: $color-white;
+					background-color: rgba($lightGray, 0.5);
+					padding: 1em 0;
+					width: 100%;
+					height: 100%;
+				}
+
+				img {
+					position: absolute;
+					top: 0;
+					left: 0;
+					color: $color-white;
+					background-color: rgba($lightGray, 0.5);
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+
+			>span {
+				color: $lightGray;
+			}
+
+			.memberType {
+				font-style: italic;
+			}
+
+			.spouse {
+				button {
+					color: $deep-blue;
+					cursor: pointer;
+					font-style: italic;
+					text-transform: inherit;
+
+					&:hover {
+						text-decoration: underline;
+					}
+
+					&:disabled {
+						color: $lightGray;
+					}
+				}
+			}
+
+			.stat {
+				>span {
+					font-style: italic;
+				}
+			}
+
+			>* {
+				margin-bottom: 1em;
+				text-align: center;
+				width: 100%;
+			}
+		}
+
+		.right {
+			flex: 1;
+
+			.fullname {
+				text-decoration: none;
+				color: $primary;
+				font-weight: bold;
+				font-size: 1.1rem;
+				margin: 0;
+				padding: 0;
+				text-transform: capitalize;
+			}
+
+			.addressContainer {
+				height: 100%;
+				flex: 1;
+				margin-right: 0.5em;
+
+				.addressType {
+					font-weight: bold;
+					color: $secondaryLight;
+				}
+
+				.address {
+					@include flex(column);
+				}
+
+				>span,
+				.address span {
+					color: $secondaryLight;
+				}
+
+				.visitWebsite {
+					text-decoration: none;
+					color: $deep-blue;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+
+			.assistantInfo {
+				>span {
+					color: $secondaryLight;
+				}
+			}
+
+			>div {
+				@include flex(column);
+				margin: 1em 0;
+
+				* {
+					color: $secondaryLight;
+				}
+			}
+		}
+
+		@media screen and (max-width: 568px) {
+			flex-direction: column;
+			align-items: center;
+
+			.left {
+				margin: 0;
+			}
+
+			.right {
+				overflow: hidden;
+				height: max-content;
+				width: 100%;
+				position: relative;
+
+				.addressContainer {
+					height: max-content;
+				}
+			}
+		}
+	}
+}

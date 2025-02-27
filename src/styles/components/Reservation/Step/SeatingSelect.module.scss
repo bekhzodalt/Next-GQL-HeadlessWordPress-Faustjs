@@ -1,0 +1,281 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.step {
+
+	:global {
+		.left {
+			width: 10%;
+
+			small {
+				display: block;
+				margin-bottom: 1em;
+			}
+
+			.reservations {
+				@include flex(column, center, center);
+				gap: 1em;
+				width: 90%;
+				margin: 0 auto 10% auto;
+				border: 1px solid $color-white;
+				border-radius: 10px;
+				padding: 1em;
+				justify-self: baseline;
+
+				.reservation-title {
+					margin: 0;
+				}
+
+				a {
+					padding: 0.25em 1em;
+					text-decoration: none;
+				}
+			}
+		}
+
+		.right {
+			@include flex(column, center, center);
+			gap: 2em;
+
+			.loading {
+				@include flex(row, center, center);
+			}
+		}
+
+		.date-select,
+		.week-select {
+			@include flex(row, space-between, center);
+			width: 100%;
+			white-space: nowrap;
+		}
+
+		button.icon {
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			color: $color-white;
+			cursor: pointer;
+		}
+
+		.week-select {
+			.selected-month {
+				@include flex(row);
+				column-gap: 0.5em;
+				position: relative;
+				font-family: inherit;
+				font-size: 1.1em;
+
+				input {
+					opacity: 0;
+					width: 100%;
+					height: 100%;
+					border: 0;
+					position: absolute;
+					left: 0px;
+					top: 0px;
+					overflow: hidden;
+					cursor: pointer;
+
+					&::-webkit-calendar-picker-indicator {
+						position: absolute;
+						top: -150%;
+						left: -150%;
+						width: 300%;
+						height: 300%;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+
+
+		.date-select {
+			align-items: flex-start !important;
+
+
+
+			>div {
+				@media screen and (max-width: 500px) {
+					width: min-content;
+				}
+			}
+
+			.date {
+				@include flex(column, center, center);
+
+				button.selected-day {
+					color: $accent;
+					border: 3px solid $accent;
+				}
+
+				button.fetching {
+					animation: fetching-ani 1s infinite forwards;
+				}
+
+				.day {
+					@include flex(row, center, center);
+					flex-wrap: wrap;
+					gap: 0.5em;
+
+					svg {
+						color: $accent;
+						font-size: 0.8em;
+					}
+				}
+			}
+
+			@media screen and (max-width: calc(280px + 2em)) {
+				flex-wrap: wrap;
+				justify-content: center;
+
+				>div {
+					width: calc(100% / 3);
+				}
+			}
+		}
+
+		.seating-select {
+			@include flex(column, flex-start, stretch);
+			width: 100%;
+			height: 100%;
+			gap: 2em;
+			overflow-y: auto;
+
+			&::-webkit-scrollbar-thumb {
+				background: $secondary;
+			}
+
+			.selected-date {
+				text-align: center;
+			}
+
+			.daily-programs {
+				@include flex(column, center, center);
+				gap: 1em;
+				width: 90%;
+				margin: 0 auto;
+
+				.program {
+					@include flex(column, center, center);
+					width: 100%;
+					border: 1px solid $color-white;
+					border-radius: 10px;
+					padding: 1em;
+
+					.program-title {
+						margin: 0;
+					}
+
+					.program-description {
+						margin: 0.5em;
+					}
+				}
+			}
+
+			.area-select {
+				@include flex(column, center, center);
+				gap: 1em;
+				margin: 2em 0;
+
+				.seating-area>.heading,
+				.waiting-list>.heading {
+					text-align: center;
+				}
+
+				.times {
+					button {
+						border: 1px solid $color-white;
+						color: $color-white;
+						border-radius: 0;
+						padding: 0.5em 1.5em;
+					}
+				}
+
+				.seating-area {
+					@include flex(column, center, center);
+
+					.seating {
+						@include flex(row, center, center);
+						flex-wrap: wrap;
+						gap: 1em;
+						margin-bottom: 5em;
+
+						.info {
+							@include flex(column, center, center);
+							flex-wrap: wrap;
+							gap: 1em;
+							flex: 100%;
+
+							.left-side {
+								@include flex(column, center, center);
+
+								img {
+									display: block;
+									width: 20%;
+
+									&:hover {
+										width: 60%;
+									}
+								}
+							}
+
+							.right-side {
+								width: 100%;
+
+								.name {
+									text-align: center;
+									margin: 0.5em 0;
+
+									svg {
+										display: block;
+									}
+								}
+
+								.description {
+									width: 100%;
+									text-align: center;
+
+									p {
+										margin: 1em 1.5em;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				.waiting-list {
+					@include flex(column, center, center);
+
+					.waiting {
+						@include flex(row, center, center);
+						flex-wrap: wrap;
+						gap: 1em;
+						margin: 1em 0;
+					}
+				}
+			}
+		}
+
+		button.selected-day,
+		button.selected-time {
+			color: $color-white;
+			border: 3px solid $accent;
+		}
+
+		.not-available {
+			font-size: 1.1em;
+			font-family: inherit;
+			text-align: center;
+		}
+
+		.loading {
+			min-height: 10em;
+		}
+
+		.back-button {
+			text-align: center;
+			margin-bottom: 2em;
+		}
+	}
+}

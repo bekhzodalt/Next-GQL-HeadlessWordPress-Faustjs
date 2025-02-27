@@ -1,0 +1,41 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.step {
+	:global {
+		.left {
+			width: 10%;
+
+			small {
+				display: block;
+				margin-bottom: 1em;
+			}
+		}
+
+		.right {
+			@include flex(column, center, center);
+			gap: 2em;
+
+			form {
+				padding: 1em;
+				@include flex(column);
+
+				input {
+					border: none;
+					padding: 1em;
+					width: 100%;
+					min-width: 250px;
+				}
+
+				input,
+				button {
+					margin: 0.5em 0;
+				}
+
+				button {
+					align-self: flex-end;
+				}
+			}
+		}
+	}
+}

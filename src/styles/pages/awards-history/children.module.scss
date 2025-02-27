@@ -1,0 +1,12 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.page {
+	width: 100%;
+	height: max-content;
+
+	h1 {
+		text-align: center;
+		color: $primary;
+	}
+}

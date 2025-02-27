@@ -1,0 +1,202 @@
+// Base styles
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+	font-weight: var(--wpe--font-weight--medium);
+	font-size: 1rem;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+	background-color: var(--wpe--code--background-color);
+	color: var(--wpe--code--color);
+	padding: 0.25rem 0.5rem;
+	border-radius: 4px;
+	white-space: nowrap;
+	margin: 0 0 1rem;
+	display: inline-block;
+}
+
+p {
+	margin: 0 0 1rem;
+	line-height: 1.8;
+}
+
+a {
+	color: var(--link-color);
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+::-moz-selection {
+	color: var(--wpe--color--white);
+	background-color: var(--wpe--color--accent);
+}
+
+::selection {
+	color: var(--wpe--color--white);
+	background-color: var(--wpe--color--accent);
+}
+
+.has-text-align-center {
+	text-align: center;
+}
+
+.has-text-align-left {
+	text-align: left;
+}
+
+.has-text-align-right {
+	text-align: right;
+}
+
+// Color Palette
+.has-brand-primary-color {
+	color: #00215a;
+}
+
+.has-brand-orange-color {
+	color: #ce614a;
+}
+
+.has-brand-deep-blue-color {
+	color: #0055b8;
+}
+
+.has-brand-royal-blue-color {
+	color: #003057;
+}
+
+.has-brand-yellow-color {
+	color: #e7b508;
+}
+
+.has-brand-primary-background-color {
+	background-color: #00215a;
+}
+
+.has-brand-orange-background-color {
+	background-color: #ce614a;
+}
+
+.has-brand-deep-blue-background-color {
+	background-color: #0055b8;
+}
+
+.has-brand-royal-blue-background-color {
+	background-color: #003057;
+}
+
+.has-brand-yellow-background-color {
+	background-color: #e7b508;
+}
+
+// Defaults
+.has-black-color {
+	color: black;
+}
+
+.has-cyan-bluish-gray-color {
+	color: #abb8c3;
+}
+
+.has-base-color {
+	color: white;
+}
+
+.has-pale-pink-color {
+	color: #f78da7;
+}
+
+.has-vivid-red-color {
+	color: #cf2e2e;
+}
+
+.has-luminous-vivid-orange-color {
+	color: #ff6900;
+}
+
+.has-luminous-vivid-amber-color {
+	color: #fcb900;
+}
+
+.has-light-green-cyan-color {
+	color: #78dcb5;
+}
+
+.has-vivid-green-cyan-color {
+	color: #00d084;
+}
+
+.has-pale-cyan-blue-color {
+	color: #8ed1fc;
+}
+
+.has-vivid-cyan-blue-color {
+	color: #0693e3;
+}
+
+.has-vivid-purple-color {
+	color: #9b51e0;
+}
+
+.has-black-background-color {
+	background-color: black;
+}
+
+.has-cyan-bluish-gray-background-color {
+	background-color: #abb8c3;
+}
+
+.has-base-background-color {
+	background-color: white;
+}
+
+.has-pale-pink-background-color {
+	background-color: #f78da7;
+}
+
+.has-vivid-red-background-color {
+	background-color: #cf2e2e;
+}
+
+.has-luminous-vivid-orange-background-color {
+	background-color: #ff6900;
+}
+
+.has-luminous-vivid-amber-background-color {
+	background-color: #fcb900;
+}
+
+.has-light-green-cyan-background-color {
+	background-color: #78dcb5;
+}
+
+.has-vivid-green-cyan-background-color {
+	background-color: #00d084;
+}
+
+.has-pale-cyan-blue-background-color {
+	background-color: #8ed1fc;
+}
+
+.has-vivid-cyan-blue-background-color {
+	background-color: #0693e3;
+}
+
+.has-vivid-purple-background-color {
+	background-color: #9b51e0;
+}

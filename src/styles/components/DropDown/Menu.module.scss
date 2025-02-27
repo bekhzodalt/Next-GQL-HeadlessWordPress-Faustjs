@@ -1,0 +1,97 @@
+@import '@styles/mixins';
+
+.menuWrapper {
+	position: absolute;
+	width: 100%;
+	max-width: 1200px;
+	height: max-content;
+	z-index: 1000000;
+	pointer-events: none;
+	margin: auto;
+	left: 0;
+	right: 0;
+}
+
+.menu {
+	@include flex(column, center, flex-start);
+	margin: 0;
+	text-align: left;
+	width: max-content;
+	min-width: 250px;
+	background-color: #646464a6;
+	padding: 2em;
+	transition: opacity 0.25s ease;
+	opacity: 0;
+	pointer-events: none;
+
+	a {
+		color: white;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	span {
+		color: white;
+		text-transform: uppercase;
+		cursor: pointer;
+	}
+
+	a,
+	span {
+		@include flex(row, flex-start, center);
+		margin: 0.1em 0;
+
+		svg {
+			font-size: 0.45em;
+			margin: 0 0.5em;
+		}
+	}
+
+	:global {
+
+		.sub-menu,
+		.deep-menu {
+			overflow: hidden;
+			@include flex(column, center, flex-start);
+
+			span {
+				a {
+					text-decoration: none;
+				}
+			}
+
+			>* {
+				margin: 0.25em;
+			}
+
+			&.opened {
+				height: max-content;
+			}
+
+			&:not(.opened) {
+				height: 0;
+				padding: 0;
+			}
+		}
+
+		.sub-menu {
+			padding: 0.75em 0 0.75em 2em;
+		}
+
+		.deep-menu {
+			padding: 0.75em 0 0.75em 2em;
+			padding-left: 2em;
+		}
+
+	}
+
+	@media screen and (max-width: 800px) {
+		width: 100%;
+	}
+}
+
+
+.open {
+	opacity: 1;
+	pointer-events: all;
+}

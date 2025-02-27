@@ -1,0 +1,84 @@
+@import '@styles/_brand-variables.scss';
+@import '@styles/_mixins.scss';
+
+.panel {
+	width: 80%;
+	overflow: hidden;
+	margin: auto;
+
+	.title {
+		color: $secondary;
+		text-transform: uppercase;
+	}
+
+	.loader {
+		margin: auto;
+
+		>div {
+			border: 4px solid $primary;
+		}
+	}
+
+	.buttons {
+		display: grid;
+		grid-template-columns: minmax(min-content, max-content) 1fr minmax(min-content, max-content);
+		width: max-content;
+		max-width: 100%;
+
+		button {
+			text-transform: capitalize !important;
+			color: $deep-blue;
+		}
+
+		>button {
+			justify-self: end;
+			border-radius: 0;
+			height: 0;
+			padding: 0.5em;
+			margin: 0.5em 0;
+
+			&:disabled {
+				color: $secondaryLight;
+				opacity: 0.5;
+				display: none;
+			}
+		}
+
+		.numbers {
+			@include flex(row, flex-start, center);
+			flex-wrap: wrap;
+			width: 100%;
+			height: 100%;
+
+			>button {
+				padding: 0.5em;
+				margin: 0.5em 0;
+				min-width: unset !important;
+				height: 0;
+				border-right: 1px solid $deep-blue;
+				border-radius: 0;
+
+				&:last-of-type {
+					border-right: unset;
+				}
+
+				&:hover {
+					text-decoration: underline;
+				}
+
+				&:disabled {
+					font-weight: bold;
+					color: $secondaryLight;
+				}
+			}
+		}
+	}
+
+	.feed {
+		width: 100%;
+	}
+
+	@media screen and (max-width: 800px) {
+		width: 100%;
+	}
+}

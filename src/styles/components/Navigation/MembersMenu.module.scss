@@ -1,0 +1,98 @@
+.menu {
+	@include glass-it($primarySeeThrough);
+	@include flex(column, flex-start, center);
+	height: 100%;
+	padding-top: 15%;
+
+	a {
+		text-decoration: none;
+
+	}
+
+	>a {
+		border-radius: 0;
+		background-color: $accent;
+		color: $color-black;
+		text-transform: capitalize;
+		font-weight: 600;
+		padding: 0.5em 1.5em;
+		margin: 0.25em 0;
+	}
+
+	.menuButton {
+		right: 1.5em;
+		top: calc(104px / 2 - 10px);
+
+		div {
+			background-color: white;
+		}
+	}
+
+	.primary,
+	.secondary {
+		@include flex(column);
+		padding: 0 1em;
+
+		a {
+			text-transform: uppercase;
+			color: white;
+			margin: 0.25em 0;
+		}
+	}
+
+	.divider {
+		height: 2px;
+		background-color: $color-white;
+		margin: 0.5em 0;
+	}
+
+	.primary,
+	.secondary,
+	.divider {
+		width: 70%;
+	}
+
+	.authButton {
+		border-radius: 0;
+		background-color: $accent;
+		color: $color-black;
+		text-transform: capitalize;
+		font-weight: 600;
+		padding: 0.5em 1.5em;
+		margin: 0.25em 0;
+	}
+
+	.subMenu,
+	.deepMenu {
+		overflow: hidden;
+		@include flex(column, center, flex-start);
+
+		span {
+			a {
+				text-decoration: none;
+			}
+		}
+
+		>* {
+			margin: 0.25em;
+		}
+
+		&.opened {
+			height: max-content;
+		}
+
+		&:not(.opened) {
+			height: 0;
+			padding: 0;
+		}
+	}
+
+	.subMenu {
+		padding: 0.75em 0 0.75em 2em;
+	}
+
+	.deepMenu {
+		padding: 0.75em 0 0.75em 2em;
+		padding-left: 2em;
+	}
+}

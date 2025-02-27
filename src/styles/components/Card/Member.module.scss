@@ -1,0 +1,191 @@
+@import '@styles/_mixins.scss';
+@import '@styles/_brand-variables';
+
+.card {
+	@include flex(row);
+	flex-wrap: wrap;
+	position: relative;
+	min-height: 150px;
+	height: auto;
+	border-bottom: 1px dashed $lightGray;
+	margin: 0.75em 0;
+	padding: 0.75em 0;
+
+	.left {
+		@include flex(column, flex-start, center);
+		max-width: 100px;
+
+		.avatar {
+			@include flex(column, center, center);
+			background-color: $color-white;
+			width: 100px;
+			height: 0;
+			padding-top: 100%;
+			border: 2px solid rgba($lightGray, 0.5);
+			overflow: hidden;
+			position: relative;
+
+			&:before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				border: 2px solid $color-white;
+				top: 0;
+				left: 0;
+				z-index: 10;
+			}
+
+			svg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: $color-white;
+				background-color: rgba($lightGray, 0.5);
+				padding: 1em 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				min-height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		span.memberType {
+			width: 100%;
+			text-align: center;
+			margin: 0 auto;
+			font-style: italic;
+			font-size: 0.8rem;
+			color: $lightGray;
+		}
+
+		@media screen and (max-width: 568px) {
+			max-width: 70px;
+
+			.avatar {
+				max-width: 70px;
+			}
+		}
+	}
+
+	.center {
+		@include flex(row);
+		flex-wrap: wrap;
+		overflow: hidden;
+
+		.info {
+			@include flex(column);
+			width: 100%;
+			margin-right: 0.5em;
+
+			.fullname {
+				text-decoration: none;
+				color: $primary;
+				font-weight: bold;
+				font-size: 1.1rem;
+				margin: 0 0 0.2em 0 !important;
+				padding: 0 !important;
+				text-transform: capitalize;
+				line-height: 1em;
+				@include flex(row);
+				flex-wrap: wrap;
+				width: 100%;
+
+				>span {
+					width: max-content;
+					text-align: left;
+				}
+			}
+		}
+
+		.addressContainer {
+			@include flex(column);
+			height: 100%;
+			min-width: 125px;
+			flex: 1;
+			margin-right: 0.5em;
+			margin-bottom: 0.5em;
+
+			.addressType {
+				font-weight: bold;
+				color: $secondaryLight;
+			}
+
+			.address {
+				@include flex(column);
+			}
+
+			>span,
+			.address span {
+				color: $secondaryLight;
+			}
+
+			.visitWebsite {
+				text-decoration: none;
+				color: $deep-blue;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+
+		.contacts {
+			width: 100%;
+			max-width: 225px;
+			@include flex(column);
+			word-wrap: break-word;
+			margin-right: 0.5em;
+
+			>a {
+				width: 100%;
+				color: $deep-blue;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			>span {
+				@include flex(row);
+				flex-wrap: wrap;
+				width: 100%;
+
+				a {
+					display: block;
+					color: $deep-blue;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+
+		.socials {
+			@include flex(row);
+			padding: 0.1em 0;
+
+			>* {
+				margin-right: 0.25em;
+			}
+		}
+	}
+
+	.left,
+	.center {
+		height: 100%;
+		width: 100%;
+		flex: 1;
+		margin: 0 0.5em;
+	}
+}

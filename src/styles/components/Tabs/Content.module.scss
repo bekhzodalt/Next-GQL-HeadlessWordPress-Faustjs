@@ -1,0 +1,69 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.tabsWrapper {
+	padding: 2em;
+	background-color: #f4f4f4;
+
+	.tabs {
+		@include flex(row, space-between);
+		border-bottom: 2px solid $accent;
+		margin-bottom: 1em;
+
+		.tab {
+			margin-right: 1em;
+			text-align: center;
+			text-decoration: none;
+			color: $primary;
+			font-weight: 600;
+			box-sizing: border-box;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+
+			&.selected {
+				border-bottom: 3px solid $accent;
+			}
+
+			&:hover {
+				border-bottom: 3px solid $accent;
+			}
+
+			span {
+				white-space: pre-line;
+			}
+		}
+
+		@media screen and (max-width: 1000px) {
+			flex-direction: column;
+			align-items: center;
+			border: 0;
+
+			.tab {
+				width: auto;
+				margin: 0;
+				padding-top: 0.3em;
+				padding-bottom: 0;
+
+				span {
+					white-space: nowrap;
+				}
+
+				&.selected {
+					border-width: 3px;
+				}
+			}
+		}
+	}
+
+	.content {
+		display: none;
+		height: max-content;
+		padding: 1em;
+
+		&.selected {
+			display: block;
+		}
+	}
+}

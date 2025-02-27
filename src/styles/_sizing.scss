@@ -1,0 +1,42 @@
+$tablet-width-sm: 800px;
+$tablet-width-md: 1024px;
+$tablet-width-lg: 1366px;
+
+$mobile-width-sm: 540px;
+$mobile-width-md: 900px;
+
+@mixin tablet-portrait($width: $tablet-width-sm) {
+	@media screen and (min-width: $width) and (orientation: portrait) {
+		@content;
+	}
+}
+
+@mixin tablet-landscape-sm($a: $mobile-width-md, $b: $tablet-width-md) {
+	@media screen and (min-width: $a) and (max-width: $b) and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin tablet-landscape-lg($a: $tablet-width-md + 1, $b: $tablet-width-lg) {
+	@media screen and (min-width: $a) and (max-width: $b) and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin tablet-landscape($width: $tablet-width-md) {
+	@media screen and (min-width: $width) and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin mobile-portrait($width: $mobile-width-sm) {
+	@media screen and (max-width: $width) and (orientation: portrait) {
+		@content;
+	}
+}
+
+@mixin landscape($width: $mobile-width-md) {
+	@media screen and (max-width: $width) and (orientation: landscape) {
+		@content;
+	}
+}

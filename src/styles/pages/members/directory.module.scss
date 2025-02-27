@@ -1,0 +1,12 @@
+@import '@styles/_brand-variables.scss';
+
+.page {
+	a {
+		color: $deep-blue;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

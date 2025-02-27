@@ -1,0 +1,101 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.modal {
+	@include flex(column, center, center);
+	@include glass-it($primarySeeThrough, 10px);
+	width: 100%;
+	height: 100vh;
+	color: $color-white;
+	position: relative;
+	text-align: center;
+
+	a {
+		text-decoration: none;
+	}
+
+	:global {
+		.accent-color {
+			border-radius: 0;
+			box-shadow: none;
+			text-decoration: none;
+			background-color: $accent;
+			text-transform: capitalize;
+			color: $primary;
+			padding: 0.5em 1.5em;
+			font-family: "Neutraface2TextTTBook";
+			margin: 0.5em 0;
+		}
+
+		.close {
+			@include flex(column, center, center);
+			border: 1px solid white;
+			border-radius: 50%;
+			margin: 0;
+			color: $color-white;
+			position: absolute;
+			right: 1em;
+			top: 1em;
+			width: 40px;
+			height: 40px;
+			cursor: pointer;
+			transition: transform 0.1s ease;
+			z-index: 100000;
+
+			&:focus,
+			&:active {
+				transform: scale(0.9);
+			}
+		}
+
+		.venue-title {
+			color: $color-white;
+			padding: 0px;
+		}
+
+		.details {
+			@include flex(column, center, center);
+
+			h2,
+			h3 {
+				padding: 30px 0 0;
+				color: $color-white;
+			}
+
+			.restrictions {
+				@include flex(column, flex-start, center);
+				row-gap: 0.25em;
+				margin: 0.5em 0;
+			}
+
+			.member-guests {
+				@include flex(row, center, center);
+				flex-wrap: wrap;
+				gap: 0.5em;
+				margin: 0.5em 0;
+
+				h3 {
+					flex: 100%;
+				}
+
+				span {
+					padding: 5px;
+					border: 1px solid $color-white;
+					border-radius: 6px;
+				}
+			}
+
+			.notes {
+				padding-bottom: 20px;
+				margin: 0.5em 0;
+			}
+		}
+
+		.close {
+			position: absolute;
+			right: 1em;
+			top: 1em;
+			z-index: 2;
+		}
+	}
+}

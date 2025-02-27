@@ -1,0 +1,253 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.content {
+	display: grid;
+	grid-template-columns: 1fr 63%;
+	column-gap: 2em;
+	justify-items: center;
+	align-items: flex-start;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	padding: 0 10%;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		top: 1.5em;
+		height: calc(100% - 3em);
+		background-color: $contentGray;
+		z-index: 0;
+	}
+
+	.details {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr min-content;
+		z-index: 1;
+		width: 100%;
+		height: calc(100% - 5em);
+		margin: 2em 0;
+		padding: 1em;
+
+		.detail {
+			width: 100%;
+			height: 100%;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: min-content min-content 1fr;
+			align-content: baseline;
+		}
+
+		.logo {
+			margin: auto;
+			margin-bottom: 2em;
+			height: 100px;
+			width: auto;
+			object-fit: contain;
+		}
+
+		.menu {
+			@include flex(row, flex-start, stretch);
+			margin: auto;
+			width: 100%;
+
+			&:has(:nth-child(4)) {
+				button,
+				a {
+					&:nth-child(2) {
+						width: 25%;
+					}
+
+					&:nth-child(3) {
+						width: 25%;
+					}
+				}
+			}
+
+			button,
+			a {
+				display: block;
+				text-transform: inherit;
+				color: black;
+				padding: 0 0.5em;
+				border-right: 2px solid black;
+				border-radius: 0;
+				line-height: 1.25em;
+				font-family: 'Neutraface2TextTTBook';
+				font-size: 1rem;
+				text-decoration: none;
+
+				&.selected {
+					font-weight: bold;
+				}
+
+				&:first-child {
+					padding-left: 0;
+				}
+
+				&:last-child {
+					border: 0;
+				}
+			}
+		}
+
+		.menu,
+		.text {
+			margin-bottom: 1em;
+		}
+
+		.text {
+			max-height: 400px;
+			overflow-y: auto;
+		}
+
+		> .reservationButton {
+			color: $color-white;
+			background-color: $primary;
+			min-width: max-content;
+			padding: 0.5em 1.5em;
+			margin: 1em 0;
+			text-transform: none;
+			border-radius: 0;
+			font-weight: 600;
+			box-shadow: -1px 2px 3px 1px rgba(0, 0, 0, 0.25);
+			transition: transform 0.1s ease;
+			font-family: 'Neutraface2TextTTBook';
+			margin: auto;
+			transform: scale(1.25);
+		}
+	}
+
+	.featured {
+		width: 100%;
+		height: 0;
+		overflow: hidden;
+		background-color: white;
+		padding-top: 70%;
+		box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.35);
+		z-index: 1;
+		position: relative;
+		align-self: center;
+
+		> img {
+			padding: 2em;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			min-height: 100%;
+			object-fit: cover;
+		}
+
+		> div {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+
+			img {
+				width: 100%;
+				height: 100%;
+				padding: 2em;
+				object-fit: cover;
+			}
+
+			video {
+				padding: 2em;
+				object-fit: cover;
+			}
+
+			:global {
+				.selectors {
+					margin: 0;
+					bottom: 3em;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 1200px) {
+		padding: 2em 15%;
+		height: max-content;
+		@include flex();
+
+		.details {
+			width: 100%;
+			max-width: 500px;
+			max-height: unset;
+			padding: 0;
+			margin: auto;
+			margin-bottom: 2em;
+
+			> .reservationButton {
+				margin: 2em auto;
+			}
+
+			.text {
+				max-height: unset;
+			}
+		}
+
+		.featured {
+			width: 100%;
+		}
+
+		&::before {
+			height: 100%;
+			top: 0;
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		padding: 1.5em;
+
+		.featured {
+			:global {
+				div.carousel {
+					padding-top: 50%;
+				}
+			}
+
+			img {
+				padding: 1.25em;
+			}
+		}
+	}
+
+	@media screen and (max-width: 400px) {
+		.details {
+			.detail {
+				.menu {
+					flex-direction: column;
+
+					button,
+					a {
+						border: 0;
+						border-bottom: 1px solid $color-black;
+						width: 100%;
+						padding: 0.25em;
+
+						&:last-of-type {
+							border: 0;
+						}
+
+						&:nth-child(2),
+						&:nth-child(3) {
+							width: 100%;
+						}
+
+						&:first-of-type {
+							border-bottom: 1px solid $color-black;
+						}
+					}
+				}
+			}
+		}
+	}
+}

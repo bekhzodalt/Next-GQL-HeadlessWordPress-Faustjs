@@ -1,0 +1,21 @@
+@import '@styles/brand-variables';
+@import '@styles/mixins';
+
+.content {
+	@include flex(column, center, center);
+	gap: 1em;
+	padding: 1em;
+	margin: 3em auto;
+	width: 100%;
+	max-width: 950px;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: 'Neutraface2TextTTBook';
+		max-width: 80%;
+	}
+}

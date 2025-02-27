@@ -1,0 +1,21 @@
+@import '@styles/brand-variables';
+
+.banner {
+	max-width: 1600px;
+	color: $primary;
+	font-weight: bolder;
+	font-size: 1em;
+	margin: 0 auto;
+	width: 100%;
+	left: 0;
+	right: 0;
+	text-align: center;
+	padding: 1em 1em;
+
+	>span {
+		white-space: nowrap;
+		align-self: center;
+		font-size: 0.8em;
+	}
+
+}

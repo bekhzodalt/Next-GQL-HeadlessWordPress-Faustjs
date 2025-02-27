@@ -1,0 +1,156 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.feed {
+	background-color: $contentGray;
+	padding: 2em;
+	width: calc(100% - 2em);
+	max-width: calc(1600px - 2em);
+	@include flex(column, center, center);
+	gap: 2em;
+	margin: 3em auto;
+
+	span {
+		font-size: 1.5em;
+		font-weight: 600;
+		color: $primary;
+		text-align: center;
+	}
+
+	.wrapper {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: 1fr;
+		justify-items: center;
+		gap: 0.5em;
+		width: 100%;
+		overflow: hidden;
+		padding: 1em;
+
+
+		a {
+			margin: 0.25em;
+		}
+
+		@media screen and (max-width: 900px) {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			gap: 0.5em;
+
+			a {
+				margin: 0;
+			}
+		}
+
+		@media screen and (max-width: 800px) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr 1fr;
+			gap: 0.5em;
+
+			a {
+				margin: 0;
+			}
+		}
+
+		@media screen and (max-width: 500px) {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(6, 1fr);
+			gap: 0.5em;
+
+			a {
+				margin: 0;
+			}
+		}
+	}
+
+	.socials {
+		@include flex(row, center, center);
+
+
+
+		>* {
+			margin: 0 0.25em;
+		}
+	}
+}
+
+.golfFeed {
+	background-color: $igFeedGray;
+	width: 100%;
+	max-width: 1600px;
+	@include flex(column, center, center);
+	margin: 3em auto 0 auto;
+
+	>span {
+		font-size: 1.5em;
+		font-weight: 600;
+		color: $primary;
+		text-align: center;
+		letter-spacing: .12em;
+		padding: 1.5em;
+	}
+
+	.wrapper {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: 1fr;
+		justify-items: center;
+		gap: 0.5em;
+		overflow: hidden;
+		width: 100%;
+		padding: 1em;
+
+		a {
+			margin: 0.25em;
+			flex-basis: 25%;
+			max-width: 250px;
+			justify-self: center;
+			padding-top: 250px !important;
+		}
+
+		@media screen and (max-width: 1600px) {
+			@include grid(space-between, center, 0.5em);
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+
+			a {
+				margin: 0;
+			}
+		}
+
+		@media screen and (max-width: 800px) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr 1fr;
+			gap: 0.5em;
+
+			a {
+				margin: 0;
+			}
+		}
+
+		@media screen and (max-width: 500px) {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(6, 1fr);
+			gap: 0.5em;
+
+			a {
+				margin: 0;
+			}
+		}
+	}
+
+	.socials {
+		@include flex(row, center, center);
+
+
+
+		>* {
+			margin: 0 0.25em;
+		}
+	}
+}

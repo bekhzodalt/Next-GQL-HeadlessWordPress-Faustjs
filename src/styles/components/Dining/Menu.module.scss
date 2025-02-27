@@ -1,0 +1,158 @@
+@import '@styles/brand-variables';
+@import '@styles/mixins';
+
+.menu {
+	.venueMenu {
+		@include flex(row, space-between, stretch);
+		width: 100%;
+		max-width: 80%;
+		height: auto;
+		margin: auto;
+
+		.column {
+			background-color: white;
+			position: relative;
+			margin-right: 1em;
+			width: 100%;
+
+			.children {
+				top: 100%;
+				left: 0;
+				width: 100%;
+				position: absolute;
+				height: 0;
+				overflow: hidden;
+				background-color: $contentGray;
+
+				&.open {
+					padding: 1em;
+					height: max-content;
+				}
+			}
+
+			&:first-child {
+				padding: unset;
+			}
+
+			&:last-child {
+				border: unset;
+				margin-right: unset;
+			}
+
+			a,
+			button {
+				width: 100%;
+				color: $primary;
+				position: relative;
+				background-color: unset;
+				@include flex(row, flex-start, center);
+				border-radius: 0;
+				font-size: 1em;
+				text-decoration: none;
+
+				&.active {
+					background-color: $activeLinkBackroundColor;
+				}
+			}
+
+			.main {
+				font-weight: 700;
+				text-transform: uppercase;
+				font-family: "Neutraface2TextTTBook";
+				text-align: left;
+				width: 100%;
+				height: 100%;
+				margin: auto;
+				padding: 1em 0.5em;
+				@include flex(row, space-between, center);
+				line-height: 1.25rem;
+
+				.effect {
+					font-size: 1rem;
+					margin-left: 1em;
+				}
+			}
+
+			a:not(.main) {
+				font-weight: 500;
+				color: $primary;
+				margin-bottom: 0.75em;
+
+				&:hover {
+					opacity: 0.75;
+					font-weight: 700;
+					font-size: 1em;
+				}
+			}
+
+			&.open {
+				background-color: $contentGray;
+			}
+		}
+	}
+
+	>button {
+		display: none;
+		text-transform: initial;
+		color: $primary;
+		background-color: $color-white;
+		border-radius: 0;
+		font-family: $body;
+		padding: 0.7em 1em;
+		margin: auto;
+		margin-bottom: 2em;
+
+		&:hover {
+			background-color: $color-white;
+		}
+	}
+
+	@media screen and (max-width: 1000px) {
+		width: 100%;
+
+		.venueMenu {
+			@include flex(column);
+			padding: 1em 2em;
+			background-color: $contentGray;
+			max-width: 100%;
+			overflow: hidden;
+			height: max-content;
+
+			.column {
+				border: none;
+				padding: 0;
+				margin: 0;
+				background-color: unset;
+				width: 100%;
+
+				.main {
+					line-height: 1rem;
+					padding: 0.5em 0;
+					width: 100%;
+				}
+
+				.children {
+					position: relative;
+
+					&.open {
+						padding: 0.5em 0;
+
+						a {
+							transition: border 0.25s ease;
+							margin-bottom: 0.25em;
+
+							&:hover {
+								border-left: 4px solid $accent;
+								padding-left: 0.25em;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// >button {
+		// 	display: block;
+		// }
+	}
+}

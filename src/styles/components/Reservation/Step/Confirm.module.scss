@@ -1,0 +1,60 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.step {
+	@include flex(column, center, center);
+	flex-direction: column !important;
+	gap: 10px;
+	text-align: center;
+
+	:global {
+		.venue-title {
+			padding: 0px;
+		}
+
+		.details {
+			@include flex(column, center, center);
+
+			.restrictions {
+				@include flex(column, flex-start, center);
+				row-gap: 0.25em;
+				margin: 10px 0;
+			}
+
+			>h2 {
+				padding-top: 20px;
+			}
+
+			.member-guests {
+				@include flex(row, center, center);
+				flex-wrap: wrap;
+				gap: 0.5em;
+				margin: 10px 0;
+
+				h2 {
+					flex: 100%;
+				}
+
+				span {
+					padding: 5px;
+					border: 1px solid $color-white;
+					border-radius: 6px;
+				}
+			}
+
+			.notes {
+				padding-bottom: 20px;
+			}
+		}
+
+		.creating {
+			@include flex(column, center, center);
+			width: 100%;
+			height: 100%;
+
+			span {
+				font-size: 1.5em;
+			}
+		}
+	}
+}

@@ -1,0 +1,53 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.members {
+	@include flex(row, flex-start, stretch);
+	background-color: $primary;
+	color: $color-white;
+	text-transform: uppercase;
+	width: calc(100% - 2em);
+	max-width: calc(1000px - 2em);
+	margin: 2em auto;
+	position: relative;
+
+	.col {
+		@include flex(column, space-evenly, stretch);
+		flex: 1;
+		padding: 1em;
+
+		a {
+			font-size: 0.85em;
+			padding: 0.4em;
+			font-weight: 700;
+			text-transform: uppercase;
+			text-decoration: none;
+
+			&:hover {
+				color: #9bb0dd;
+			}
+		}
+	}
+
+	&.noStyle {
+		background-color: unset;
+		height: max-content;
+		width: 100%;
+		max-width: calc(1200px + 4em);
+		align-items: flex-start;
+		justify-content: space-between;
+
+		img {
+			display: none;
+		}
+
+		.col {
+			max-width: max-content;
+
+			a {
+				color: $primary;
+			}
+		}
+	}
+
+}

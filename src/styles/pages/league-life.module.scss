@@ -1,0 +1,150 @@
+@import "@styles/brand-variables";
+@import "@styles/mixins";
+
+.content {
+	@include flex(column, center, center);
+	gap: 1em;
+	padding: 1em;
+	margin: 3em auto;
+	width: 100%;
+	max-width: 950px;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: $primary;
+		font-family: 'Neutraface2TextTTBook';
+	}
+}
+
+.topSection {
+	scroll-margin-top: 200px;
+}
+
+.cards {
+	.cardsItem {
+		max-width: 1200px;
+		width: 100%;
+		height: 0;
+		max-height: min-content;
+		padding-top: calc(0.7 * min(1200px, 100vw));
+		margin: auto;
+		overflow: hidden;
+		scroll-margin-top: 138.5px;
+		position: relative;
+
+		&:nth-child(even) {
+			.left {
+				left: unset;
+				right: 0;
+			}
+
+			.right {
+				right: unset;
+				left: 0;
+			}
+		}
+
+		.left {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 50%;
+			height: 100%;
+			padding: 2em;
+			background-color: #f4f4f4;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			.view {
+				overflow: hidden;
+				overflow-y: auto;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+				width: 100%;
+				margin-bottom: 1em;
+
+				img {
+					width: 200px;
+					height: 200px;
+					object-fit: cover;
+					transition: opacity 1s;
+					margin: auto;
+					margin-bottom: 1em;
+				}
+
+				.text {
+					p {
+						margin: 0;
+						line-height: normal;
+						font-size: medium;
+					}
+				}
+			}
+
+			.buttons {
+				width: 100%;
+				@include flex(row, center, center);
+				flex-wrap: wrap;
+
+				a {
+					width: 200px;
+					background-color: #e7b508;
+					color: #00215a;
+					padding: 0.5em;
+					text-align: center;
+					text-decoration: unset;
+					font-size: medium;
+					margin: 0.5em;
+
+					&:active:not(:disabled):not(.no-shrink) {
+						transform: scale(.85);
+					}
+				}
+			}
+		}
+
+		.right {
+			position: absolute;
+			top: 0;
+			right: 0;
+			align-self: stretch;
+			width: 50%;
+			min-height: 100%;
+			background-size: cover;
+			background-color: #FCE9A6;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: opacity 1s;
+			}
+		}
+
+		@media screen and (max-width: 900px) {
+			@include flex(row, center, center);
+			flex-direction: column-reverse;
+			padding-top: 0;
+			height: max-content;
+
+			.left,
+			.right {
+				position: relative;
+				width: 100%;
+			}
+
+			.right {
+				padding-top: 50%;
+				height: 0;
+			}
+		}
+	}
+}

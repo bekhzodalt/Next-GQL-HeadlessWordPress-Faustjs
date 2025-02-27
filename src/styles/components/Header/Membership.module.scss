@@ -1,0 +1,72 @@
+@import '@styles/brand-variables';
+
+.header {
+	width: 100%;
+	height: 104px;
+	background-color: $secondary;
+	color: $color-white;
+
+	:global {
+
+		.header-wrap {
+			display: grid;
+			grid-template-columns: auto 1fr 1fr;
+			grid-template-areas: 'brand greeting weather close';
+			align-items: center;
+			column-gap: 1em;
+			height: 100%;
+			width: 100%;
+			max-width: 1000px;
+			margin: auto;
+			padding: 0 1em;
+			position: relative;
+
+			.brand-logo {
+				grid-area: brand;
+				justify-self: left;
+			}
+
+			.greeting {
+				grid-area: greeting;
+				justify-self: left;
+				font-size: 1em;
+			}
+
+			.weather {
+				grid-area: weather;
+				justify-self: right;
+
+				* {
+					font-size: 1em;
+				}
+			}
+
+			.menu-button {
+				top: 0 !important;
+				bottom: 0 !important;
+				margin: auto;
+
+				div {
+					background-color: white;
+				}
+
+				&.show {
+					display: none;
+				}
+			}
+
+			@media screen and (min-width: 1000px) {
+				.menu-button {
+					display: none;
+				}
+			}
+
+			@media screen and (max-width: 1000px) {
+				.weather {
+					display: none;
+				}
+			}
+		}
+	}
+
+}

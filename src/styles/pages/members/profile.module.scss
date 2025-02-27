@@ -1,0 +1,350 @@
+@import '@styles/brand-variables';
+@import '@styles/mixins';
+
+.page {
+	form {
+		background-color: $contentGray;
+		padding: 1em 3em;
+
+		.title {
+			font-weight: bold;
+			position: relative;
+			display: block;
+			line-height: 2.4rem;
+			font-size: 1.2rem;
+		}
+
+		a {
+			cursor: pointer;
+		}
+
+		.label {
+			color: $secondary;
+			min-width: max-content;
+		}
+
+		textarea,
+		input[type='text'],
+		input[type='date'],
+		select {
+			width: 200px;
+			max-width: 200px;
+		}
+
+		input[type='checkbox'] {
+			margin: 0;
+		}
+
+		.input {
+			@include flex(row);
+			flex-wrap: wrap;
+			margin-bottom: 1em;
+			text-align: left;
+			overflow: hidden;
+
+			>* {
+				width: 50%;
+				min-width: 200px;
+				@include flex();
+			}
+
+			&:has(.left) {
+				margin: 0;
+			}
+
+			.left {
+				margin-bottom: 0.5em;
+
+				.avatar {
+					@include flex(column);
+					margin-bottom: 0.5em;
+
+					.editor {
+						background-color: $secondaryLight;
+						margin-bottom: 0.5em;
+					}
+
+					input {
+						width: 100%;
+					}
+
+					button {
+						margin-top: 0.5em;
+						align-self: flex-end;
+					}
+				}
+
+				>a {
+					margin-top: 0.5em;
+				}
+			}
+
+			.right {
+				.dropDown {
+					@include flex(row, space-between);
+					flex-wrap: wrap;
+					width: 100%;
+					max-width: 400px;
+
+					label {
+						position: relative;
+						width: 100%;
+						max-width: unset;
+
+						input {
+							width: 100%;
+							max-width: unset;
+						}
+
+						svg {
+							position: absolute;
+							right: 0.4em;
+							bottom: 0.4em;
+							font-size: 0.8rem;
+
+							&.check {
+								color: green;
+							}
+
+							&.x {
+								color: red;
+							}
+						}
+					}
+
+					ul {
+						margin: 0;
+						padding: 1em;
+
+						.error {
+							color: red;
+							margin-bottom: 1em;
+						}
+					}
+
+					button {
+						width: calc(50% - 0.5em);
+						display: block;
+						align-self: flex-end;
+						margin-top: 1em;
+					}
+				}
+			}
+
+			.checkbox {
+				@include flex(column);
+
+				select {
+					margin: 0 0.2em;
+				}
+			}
+
+			.anniversary {
+				@include flex(column);
+
+				select {
+					margin: 0 0.2em;
+				}
+			}
+
+			.choices {
+				flex-direction: row;
+			}
+
+			.children {
+				@include flex(column);
+
+				input {
+					width: 100%;
+				}
+
+				.birthdate {
+					width: 100%;
+					@include flex(row, space-between)
+				}
+
+				button {
+					width: 100%;
+					max-width: max-content;
+				}
+
+				>* {
+					max-width: 200px;
+					margin-bottom: 0.5em;
+				}
+			}
+
+			.checkbox textarea {
+				max-width: 200px;
+			}
+
+			.interests {
+				width: 100%;
+				@include flex(row);
+				flex-wrap: wrap;
+
+				label {
+					margin: 0.4em 0;
+					width: calc(100% / 3);
+					min-width: 150px;
+					text-transform: capitalize;
+				}
+
+				input {
+					margin-right: 0.2em;
+				}
+			}
+
+			a {
+				color: $deep-blue;
+				text-decoration: none;
+			}
+
+			.message {
+				width: 100%;
+				word-wrap: break-word;
+			}
+		}
+
+		textarea {
+			min-height: 50px;
+		}
+
+		button {
+			text-transform: capitalize;
+			color: initial;
+			background-color: $primary;
+			border: none;
+			border-radius: 0;
+			color: $color-white;
+			padding: 0 0.5em;
+
+			&:hover {
+				background-color: $primaryOpaque;
+			}
+
+			&:disabled {
+				color: white;
+				opacity: 0.5;
+			}
+		}
+
+		.message {
+			color: $primary;
+			min-width: 100px;
+			width: 100%;
+			word-wrap: break-word;
+			padding-top: 0.5em;
+
+			&:last-of-type {
+				display: block;
+				margin-bottom: 0.5em;
+			}
+		}
+
+		.opener {
+			color: $primary;
+			min-width: 100px;
+			width: auto;
+			display: block;
+
+			p {
+				width: 100%;
+				word-wrap: break-word;
+				white-space: pre-wrap;
+				margin: 1em 0;
+			}
+		}
+
+		.addChild {
+			text-transform: capitalize;
+			width: 100%;
+			max-width: max-content;
+			margin-bottom: 1em;
+		}
+
+		@media screen and (max-width: 500px) {
+			max-width: 100%;
+			margin: auto;
+
+			.input {
+				.interests {
+					label {
+						min-width: 50%;
+					}
+				}
+			}
+		}
+	}
+}
+
+.modal {
+	@include glass-it($primaryOpaque);
+	@include flex(column, center, center);
+	padding: 1em;
+
+	.close {
+		position: absolute;
+		color: $color-white;
+		font-size: 1.5rem;
+		right: 1em;
+		top: 1em;
+		z-index: 1000;
+		cursor: pointer;
+	}
+
+	.modalContent {
+		width: 100%;
+		max-width: 700px;
+		margin-bottom: 1em;
+
+		h1,
+		p {
+			color: $color-white;
+			text-align: center;
+		}
+	}
+
+	.buttons {
+		@include flex(row);
+
+		button {
+			background-color: $accent;
+			border-radius: 0;
+			margin: 0.5em;
+			color: $primary;
+			text-transform: inherit;
+			font-weight: bold;
+		}
+	}
+
+	.wrapper {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		padding: 2em;
+
+		.close {
+			@include flex(column, center, center);
+			border: 1px solid white;
+			border-radius: 50%;
+			color: $color-white;
+			position: absolute;
+			right: 1em;
+			top: 1em;
+			width: 1.5em;
+			height: 1.5em;
+			cursor: pointer;
+			transition: transform 0.1s ease;
+			z-index: 100000;
+			padding: 0.1rem;
+
+			&:focus,
+			&:active {
+				transform: scale(0.9);
+			}
+		}
+	}
+}

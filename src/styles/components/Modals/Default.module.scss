@@ -1,0 +1,145 @@
+@import '@styles/brand-variables';
+@import '@styles/mixins';
+
+.modal {
+	@include flex(column, flex-start, center);
+	@include glass-it();
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 33, 90, 0.8862745098);
+	overflow-y: auto;
+	padding: 3em 1em;
+
+	svg {
+		color: #fff;
+		font-size: 1.5em;
+		cursor: pointer;
+		z-index: 100000;
+		margin-left: auto;
+	}
+
+	.content {
+		flex: 0 auto;
+		min-width: 50%;
+		max-width: 1200px;
+		justify-self: center;
+		margin: auto;
+		padding: 2em;
+		background-color: #fff;
+		background-color: #fff;
+		z-index: 1;
+
+		form {
+			display: inline-block;
+			margin: 0;
+
+			ul {
+				@include flex(column, center, flex-start);
+				gap: 0.8em;
+				padding: 0;
+				margin-top: 0;
+
+				li {
+					display: flex;
+					flex-wrap: wrap;
+					flex: 1 1 auto;
+
+					strong {
+						margin: 1em 0;
+					}
+
+					label {
+						width: clamp(5em, 50vw, 20em);
+						font-weight: bold;
+						font-size: 14px;
+					}
+
+					span {
+						font-size: 14px;
+
+						&.required {
+							color: #ff0000;
+							color: #ff0000;
+						}
+					}
+
+					.submitBtn {
+						width: 100px;
+						background-color: $accent;
+						color: $primary;
+						text-transform: capitalize;
+						border-radius: 0;
+						font-family: $body;
+						font-weight: 600;
+						padding: 0.5em 1em;
+						border: unset;
+						cursor: pointer;
+					}
+
+					input,
+					textarea,
+					select {
+						border: solid 1px $primary;
+						width: 180px;
+						padding: 3px;
+
+						&.invalid {
+							border-color: #ff0000;
+							border-color: #ff0000;
+						}
+					}
+
+					&:last-of-type {
+						// margin-left: auto;
+					}
+
+					&.formMessages {
+						color: $deep-blue;
+						font-family: $body;
+						font-weight: 600;
+
+						&.error {
+							color: #ff0000;
+							color: #ff0000;
+						}
+					}
+				}
+			}
+		}
+
+		.note {
+			* {
+				margin: 0;
+			}
+		}
+
+		@media screen and (max-width: 800px) {
+			max-width: unset;
+			padding: 1em;
+
+			form ul li {
+				label {
+					max-width: 150px;
+					width: 150px;
+				}
+
+				input,
+				select,
+				textarea {
+					width: 145px;
+				}
+			}
+		}
+	}
+
+	.exitArea {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		cursor: pointer;
+	}
+}

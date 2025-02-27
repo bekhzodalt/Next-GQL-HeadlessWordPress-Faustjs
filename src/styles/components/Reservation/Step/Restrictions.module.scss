@@ -1,0 +1,48 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.step {
+	:global {
+		.left {
+			width: 10%;
+
+			small {
+				display: block;
+				margin-bottom: 1em;
+			}
+		}
+
+		.right {
+			@include flex(column, center, center);
+			gap: 1em;
+
+			.tags {
+				@include flex(row, center, center);
+				flex-wrap: wrap;
+				gap: 1em;
+
+				.tag {
+					background-color: unset;
+					border: 1px solid $color-white;
+					min-width: unset !important;
+					color: $color-white;
+					padding: 0.5em 1.5em;
+					border-radius: 0;
+
+				}
+
+				.selected-tag {
+					color: $accent;
+					border: 2px solid $accent;
+					box-sizing: border-box;
+				}
+
+			}
+
+			hr {
+				width: 100%;
+				margin: 1em 0;
+			}
+		}
+	}
+}

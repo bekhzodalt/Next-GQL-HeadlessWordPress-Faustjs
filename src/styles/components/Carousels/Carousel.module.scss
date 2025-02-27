@@ -1,0 +1,163 @@
+@import '@styles/mixins';
+@import '@styles/sizing';
+@import '@styles/brand-variables';
+
+.carousel {
+	overflow: hidden;
+	height: 0;
+	padding-top: 50%;
+	width: 100%;
+	position: relative;
+	margin: auto;
+
+	:global() {
+
+		iframe,
+		video {
+			display: block;
+			opacity: 0;
+			border: unset;
+			position: absolute;
+			width: 100%;
+			height: auto;
+			min-height: 100%;
+			top: 0;
+			left: 0;
+			transition: opacity 1s;
+			aspect-ratio: 1.75;
+		}
+
+		img {
+			position: absolute !important;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			top: 0;
+			left: 0;
+			transition: opacity 1s;
+		}
+
+		>div {
+			z-index: 2;
+			position: absolute;
+			right: 7em;
+			bottom: 2.2em;
+			@include flex(row, center, center);
+
+			span {
+				cursor: pointer;
+				width: 0.5em;
+				height: 0.5em;
+				border: 1.5px solid white;
+				border-radius: 0.25em;
+				margin: 0 0.25em;
+			}
+		}
+	}
+
+	@include mobile-portrait($width: 800px) {
+		padding-top: 100%;
+
+		iframe {
+			width: 100%;
+			height: 100%;
+			transform: scale(2);
+		}
+
+		>div {
+			position: absolute;
+			right: 0;
+			left: 0;
+			bottom: 1em;
+		}
+	}
+}
+
+.golfCarousel {
+	overflow: hidden;
+	aspect-ratio: 2;
+	width: 100%;
+	position: relative !important;
+	z-index: 10000;
+	margin: auto;
+
+	:global() {
+		iframe {
+			opacity: 0;
+			border: unset;
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: auto;
+			transition: opacity 1s;
+			aspect-ratio: 1.75;
+		}
+
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			top: 0;
+			left: 0;
+			transition: opacity 1s;
+			opacity: 0;
+		}
+
+		>div {
+			z-index: 2;
+			position: absolute;
+			bottom: 1.2em;
+			right: 50%;
+			transform: translateX(50%);
+			@include flex(row, center, center);
+
+			span {
+				cursor: pointer;
+				width: 0.7em;
+				height: 0.7em;
+				border: 1.5px solid white;
+				border-radius: 0.35em;
+				margin: 0 0.35em;
+			}
+		}
+
+		@include mobile-portrait($width: 800px) {
+			aspect-ratio: 1;
+
+			iframe {
+				width: 100%;
+				height: 100%;
+				transform: scale(2);
+			}
+
+			>div {
+				position: absolute;
+				right: 0;
+				left: 0;
+				bottom: 1em;
+				transform: unset;
+			}
+		}
+	}
+}
+
+.noContent {
+	&:before {
+		content: 'Welcome to The Union League';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: $primary;
+		color: white;
+		@include flex(column, center, center);
+	}
+}
+
+.active {
+	opacity: 1 !important;
+}
+
+.notActive {
+	opacity: 0 !important;
+}

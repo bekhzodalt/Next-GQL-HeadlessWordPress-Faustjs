@@ -1,0 +1,538 @@
+@import '@styles/brand-variables';
+@import '@styles/mixins';
+
+.page {
+	.topSection {
+		scroll-margin-top: 200px;
+	}
+
+	.membershipOverview {
+		max-width: calc(1600px - 4em);
+		padding: 2.5em 10em;
+		background-color: #f4f4f4;
+		margin: auto;
+
+		h2 {
+			text-align: center;
+			color: $primary;
+		}
+
+		@media screen and (max-width: 800px) {
+			padding: 3em 2em;
+		}
+	}
+
+	> h2.title {
+		max-width: calc(1600px - 4em);
+		width: 100%;
+		text-align: center;
+		color: $primary;
+		margin: 1.5em auto;
+	}
+
+	.cards {
+		padding: 1em;
+		border-radius: unset;
+		max-width: calc(1600px - 2em);
+		display: grid;
+		gap: 1em;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: 1fr 1fr;
+		width: 100%;
+		min-height: 400px;
+		overflow: hidden;
+		margin: auto;
+
+		@media screen and (max-width: 1000px) {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		@media screen and (max-width: 800px) {
+			padding: 0;
+			grid-template-columns: 1fr;
+
+			> a,
+			> div {
+				width: 100%;
+				min-width: none;
+				overflow: hidden;
+			}
+		}
+
+		.desc {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			margin: 0;
+			width: 100%;
+			padding: 1em;
+			text-align: left;
+			line-height: 1.5em;
+		}
+	}
+
+	.anchors {
+		margin: 4em auto;
+		margin-bottom: 0;
+		overflow: hidden;
+		width: calc(100% - 2em);
+
+		.inner {
+			border-bottom: 2px solid $accent;
+			width: 100%;
+			max-width: max-content;
+			@include flex(row, center, center);
+			margin: 0em auto 2em auto;
+
+			a {
+				text-decoration: none;
+				color: $primary;
+				text-transform: uppercase;
+				position: relative;
+				font-size: 1rem;
+				padding: 0.5em 0;
+				font-weight: bold;
+				margin-right: 2em;
+				text-align: center;
+
+				&:last-of-type {
+					margin-right: 0;
+				}
+
+				&:before {
+					position: absolute;
+					content: '';
+					width: 100%;
+					height: 100%;
+					left: 0;
+					top: 0;
+					border-bottom: 0px solid $accent;
+					transition: border-bottom 0.25s ease;
+				}
+
+				&:hover {
+					cursor: pointer;
+					opacity: 0.7;
+
+					&:before {
+						border-bottom: 4px solid $accentLight;
+					}
+				}
+			}
+
+			@media screen and (max-width: 700px) {
+				border-bottom: unset;
+				flex-wrap: wrap;
+				max-width: 80%;
+
+				a {
+					width: 100%;
+					margin-right: 0;
+
+					&::before {
+						border-bottom: 2px solid $accent;
+					}
+				}
+			}
+		}
+	}
+
+	.haveAQuestion {
+		padding: 0 1em;
+		padding-top: 1em;
+		color: $primary;
+		overflow: hidden;
+		width: fit-content;
+		margin: auto;
+		text-align: center;
+
+		> div {
+			float: left;
+			@include flex(row);
+			flex-wrap: wrap;
+			word-break: break-all;
+		}
+	}
+
+	.public {
+		margin: auto;
+		margin-bottom: 3em;
+		margin-top: 1em;
+		overflow: hidden;
+		width: 100%;
+		max-width: calc(1600px - 4em);
+		padding: 3em 10%;
+
+		.title {
+			margin-bottom: 0em;
+			padding: 2em 1em 0;
+			color: $primary;
+			width: 100%;
+			text-align: center;
+		}
+
+		.subTitle {
+			text-align: center;
+			margin-bottom: 3em;
+			padding: 1em 1em 0;
+			width: 100%;
+		}
+
+		.content {
+			background-color: $contentGray;
+			padding: 3em 10em;
+
+			p {
+				margin-bottom: 3em;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				color: $primary;
+			}
+
+			@media screen and (max-width: 800px) {
+				padding: 3em 2em;
+			}
+		}
+
+		.bottomText {
+			text-align: center;
+			margin: 3em 0;
+			width: 100%;
+
+			a {
+				color: #000;
+			}
+
+			p {
+				padding: 0;
+				margin-top: 0;
+
+				> * {
+					@include flex(row, center);
+					flex-wrap: wrap;
+				}
+			}
+		}
+
+		@media screen and (max-width: 800px) {
+			padding: 3em 1em;
+		}
+	}
+}
+
+.modal {
+	@include flex(column, flex-start, center);
+	top: 0;
+	left: 0;
+	@include glass-it();
+	background-color: rgba(0, 33, 90, 0.8862745098);
+	padding: 3em 1em;
+	overflow-y: auto;
+
+	.close {
+		cursor: pointer;
+	}
+
+	svg {
+		position: absolute;
+		top: 0.5em;
+		right: 0.5em;
+		font-size: 1.5em;
+		color: #fff;
+		z-index: 10000;
+	}
+
+	> section {
+		padding: 3em 0;
+		width: 80%;
+		max-width: calc(1600px - 4em);
+		margin: 2em auto;
+		scroll-margin-top: 144px;
+		z-index: 1;
+
+		> * {
+			background-color: $contentGray;
+
+			> * {
+				background-color: $contentGray;
+			}
+		}
+
+		.title {
+			color: $primary;
+			font-family: 'Neutraface2TextTTBook';
+			text-align: center;
+		}
+
+		.content {
+			@include flex(column, center, center);
+			gap: 1em;
+			padding: 1em;
+			width: 100%;
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				color: $primary;
+			}
+
+			p {
+				margin-bottom: 0;
+				@include flex(row);
+				flex-wrap: wrap;
+			}
+
+			div {
+				width: 100%;
+			}
+
+			a {
+				color: #000;
+			}
+		}
+
+		&.membershipProcess {
+			padding: 3em min(10em, 8%);
+			max-width: 1200px;
+			margin: auto;
+			background-color: #f4f4f4;
+
+			@media screen and (max-width: 800px) {
+				max-width: 80%;
+			}
+		}
+
+		&.membershipWelcome {
+			margin: auto;
+			width: 60%;
+			padding: 0;
+
+			.content {
+				@include flex(row, center);
+				gap: 0;
+				align-items: baseline;
+				flex-wrap: wrap;
+				padding: 0.5em;
+
+				.text {
+					padding: 1em 0;
+				}
+
+				p {
+					display: block;
+					margin-bottom: 1em;
+				}
+
+				a.btn {
+					font-size: 0.9rem;
+					font-weight: bold;
+					border-radius: 0;
+					color: #242c66;
+					border: none;
+					font-family: 'Neutraface2TextTTBook';
+					cursor: pointer;
+					display: block;
+					text-decoration: unset;
+					width: fit-content;
+					margin: auto;
+				}
+
+				.element {
+					overflow: hidden;
+					width: calc(20% - 1em);
+					margin: 0.5em;
+					margin-bottom: 2em;
+
+					.image {
+						position: relative;
+						width: 100%;
+						height: 0;
+						padding-top: 100%;
+						cursor: pointer;
+
+						> img {
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							min-height: 100%;
+							object-fit: cover;
+						}
+
+						> a {
+							position: absolute;
+							display: block;
+							top: 0;
+							left: 0;
+							height: 100%;
+							width: 100%;
+
+							img {
+								width: 100%;
+								height: 100%;
+								object-fit: cover;
+							}
+						}
+					}
+
+					> a {
+						text-align: center;
+						margin-top: 0.5em;
+					}
+				}
+
+				@media screen and (max-width: 1000px) {
+					.element {
+						min-width: unset;
+						width: calc(100% / 3 - 1em);
+					}
+				}
+
+				@media screen and (max-width: 800px) {
+					.element {
+						min-width: unset;
+						width: calc(50% - 1em);
+					}
+				}
+			}
+
+			@media screen and (max-width: 800px) {
+				width: calc(100% - 4em);
+			}
+		}
+
+		&.membershipPropose {
+			padding: unset;
+			margin: auto;
+
+			.title {
+				margin-bottom: 2em;
+			}
+
+			.openModalBtn {
+				font-size: 0.9rem;
+				font-weight: bold;
+				padding: 0.5em 1em;
+				background: #242c66;
+				border-radius: 0;
+				color: #fff;
+				border: none;
+				font-family: 'Neutraface2TextTTBook';
+				cursor: pointer;
+				display: block;
+				text-decoration: unset;
+				width: fit-content;
+				margin: auto;
+				margin-top: 1em;
+			}
+		}
+
+		&.memberNews {
+			width: 60%;
+			color: #fff;
+			margin: auto;
+			padding: 3em 1em;
+			scroll-margin-top: 144px;
+			background-color: $contentGray;
+
+			h2 {
+				color: $primary;
+				padding-bottom: 2em;
+				text-align: center;
+			}
+
+			.items {
+				@include flex(row, center, center);
+				flex-wrap: wrap;
+				width: 100%;
+				gap: 2.5em;
+				margin: 0 auto;
+				padding-bottom: 2em;
+
+				.item {
+					flex-grow: 0;
+					flex-shrink: 0;
+					flex-basis: 30%;
+					align-self: start;
+					@include flex(column, center, center);
+					overflow: hidden;
+					min-width: 150px;
+
+					> * {
+						color: $primary;
+						text-align: center;
+					}
+
+					.image {
+						position: relative;
+						width: 100%;
+						height: 0;
+						padding-top: 100%;
+						margin-bottom: 1em;
+
+						img {
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							min-height: 100%;
+							object-fit: cover;
+						}
+					}
+
+					a {
+						i {
+							display: block;
+						}
+					}
+				}
+			}
+
+			@media screen and (max-width: 800px) {
+				width: calc(100% - 4em);
+
+				.items {
+					flex-direction: column;
+					justify-content: center;
+					align-content: center;
+
+					.item {
+						width: 50%;
+					}
+				}
+			}
+		}
+
+		@media screen and (max-width: 800px) {
+			padding: 3em 2em;
+			grid-template-columns: 1fr;
+		}
+	}
+
+	:global {
+		.content {
+			margin: auto;
+		}
+	}
+
+	.exitArea {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		cursor: pointer;
+	}
+}

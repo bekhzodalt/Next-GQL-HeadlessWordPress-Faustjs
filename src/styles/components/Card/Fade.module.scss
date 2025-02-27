@@ -1,0 +1,63 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.fadeCard {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	position: relative;
+
+	&::before {
+		display: block;
+		content: '';
+		position: relative;
+		padding-top: 100%;
+		width: 100%;
+		height: 0;
+		overflow: hidden;
+	}
+
+	>span {
+		position: absolute !important;
+		top: 0;
+		left: 0;
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	a {
+		position: absolute !important;
+		top: 0;
+		left: 0;
+		width: 100% !important;
+		height: 100% !important;
+		background-color: $primarySeeThrough;
+		z-index: 1000;
+		color: $color-white;
+		text-transform: uppercase;
+		@include flex(column, center, center);
+		transition: opacity 0.5s ease;
+		text-align: center;
+	}
+
+	.label {
+		position: absolute !important;
+		top: 0;
+		left: 0;
+		width: 100% !important;
+		height: 100% !important;
+		background-color: $primarySeeThrough;
+		z-index: 1000;
+		color: $color-white;
+		text-transform: uppercase;
+		@include flex(column, center, center);
+		transition: opacity 0.5s ease;
+		text-align: center;
+		padding: 1em;
+
+		&:hover {
+			cursor: pointer;
+			opacity: 0;
+		}
+	}
+}

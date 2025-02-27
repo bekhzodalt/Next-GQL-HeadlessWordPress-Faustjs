@@ -1,0 +1,8 @@
+.modal {
+	transition: opacity 0.25s ease;
+	pointer-events: none;
+}
+
+.notLoading {
+	opacity: 0;
+}

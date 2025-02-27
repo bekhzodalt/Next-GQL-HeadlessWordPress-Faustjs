@@ -1,0 +1,27 @@
+@import '@styles/mixins';
+@import '@styles/brand-variables';
+
+.weather {
+	@include flex(row, flex-start, center);
+	text-transform: uppercase;
+
+	:global {
+
+		.forecast {
+			padding: 0px;
+			text-align: right;
+
+			.temp,
+			.status {
+				color: $lightGray;
+				font-size: 0.9em;
+			}
+		}
+
+		.icon {
+			color: #a7a7a7;
+			font-size: 32px;
+			margin-left: 0.5em;
+		}
+	}
+}
