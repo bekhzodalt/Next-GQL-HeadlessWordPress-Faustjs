@@ -245,64 +245,6 @@ export default function Page() {
 						</div>
 
 						<Modal
-							open={archivedModalOpened}
-							className={style.archivedModal}
-							hideBackdrop={true}
-						>
-							<>
-								<FontAwesomeIcon
-									icon={faTimes}
-									className={style.close}
-									onClick={() => setArchivedModalOpened(!archivedModalOpened)}
-								/>
-
-								<div className={style.inner}>
-									<div className={style.title}>Archived League News</div>
-
-									<div className={style.items}>
-										{slides?.archived ? (
-											<>
-												{slides?.archived?.map((item, i) => {
-													return (
-														<div
-															className={style.item}
-															key={i}
-															onClick={() =>
-																onClickArchivedArticle(item.content)
-															}
-														>
-															<div className={style.left}>
-																{item.src ? (
-																	<Image
-																		src={item.src}
-																		alt={item.alt ?? 'Image'}
-																		width={100}
-																		height={100}
-																	/>
-																) : null}
-															</div>
-															<div className={style.right}>
-																<strong>{item.title}</strong>
-																<span>
-																	<FormatDate date={item.date} />
-																</span>
-															</div>
-														</div>
-													)
-												})}
-											</>
-										) : null}
-									</div>
-								</div>
-
-								<div
-									className={style.exitArea}
-									onClick={() => setArchivedModalOpened(false)}
-								/>
-							</>
-						</Modal>
-
-						<Modal
 							open={archivedArticleModalOpened}
 							className={style.archivedArticleModal}
 							hideBackdrop={true}
