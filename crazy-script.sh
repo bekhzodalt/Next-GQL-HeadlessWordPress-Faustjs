@@ -3,8 +3,13 @@
 repo_link="https://github.com/bekhzodalt/Next-GQL-HeadlessWordPress-Faustjs"
 user_name="bekhzodalt"
 user_email="edu.bekhzod@gmail.com"
+<<<<<<< HEAD
 history_start_date="2025-01-01"
 history_end_date="2025-03-01"
+=======
+history_start_date="2024-11-01"
+history_end_date="2024-12-31"
+>>>>>>> ee99a5f626ebbd32ff900f5363d908b6b6f53e94
 file_name="text-$(cat /dev/urandom | tr -cd 'a-zA-Z0-9' | head -c 20).txt"
 
 folder_name=$(echo "$repo_link" | sed 's/.*\/\([^\/]*\)\.git/\1/')
@@ -80,8 +85,13 @@ echo_dates_range_skip_weekends() {
 
         current_ts=$((current_ts + 86400))
     done
+<<<<<<< HEAD
     git pull origin master --allow-unrelated-histories
     git commit -am "Merge branch 'master'"
+=======
+    git pull origin main --allow-unrelated-histories
+    git commit -am "Merge branch 'main'"
+>>>>>>> ee99a5f626ebbd32ff900f5363d908b6b6f53e94
     git push
 }
 
